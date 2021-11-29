@@ -5,8 +5,14 @@ import { useEffect } from "react";
 export default function ProjectDetail() {
   let params = useParams();
 
-  useEffect(() => {
-    console.log(params);
-  }, []);
-  return <div class="text-3xl text-primary-default">Project detail page</div>;
+  console.log(params);
+
+  // useEffect(() => {
+  //   console.log(params);
+  // }, []);
+  return (
+    <div className="text-3xl text-primary-default">
+      Project detail page of {params.name}
+    </div>
+  );
 }

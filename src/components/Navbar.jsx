@@ -1,31 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 
 export default function Navbar() {
+  const [test, setTest] = useState([]);
   useEffect(() => {
-    console.log("rendered");
-  });
+    // console.log("rendered");
+    fetch("/data/data.json")
+      .then((data) => data.json())
+      .then((data) => setTest(data));
+  }, []);
+
   return (
     <div>
       <nav>
         <ul>
-          <li>
-            <Link to="/" className="text-primary-default">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/projects/ggg" className="text-primary-default">
-              About
-            </Link>
-          </li>
+          {test.map((v) => {
+            return (
+              <li>
+                <Link to={v.url} className="text-primary-default">
+                  {v.name}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </nav>
-
-      <hr />
-      {/* An <Outlet> renders whatever child route is currently active,
-      so you can think about this <Outlet> as a placeholder for
-      the child routes we defined above. */}
       <Outlet />
     </div>
   );
