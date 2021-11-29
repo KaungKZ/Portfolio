@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "IBM-Plex-Mono-Regular";
+  font-weight: 400;
+  src: url("../fonts/ibm_mono-webfont/ibmplexmono-regular-webfont.eot");
+  src: url("../fonts/ibm_mono-webfont/ibmplexmono-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/ibm_mono-webfont/ibmplexmono-regular-webfont.woff") format("woff"), url("../fonts/ibm_mono-webfont/ibmplexmono-regular-webfont.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "IBM-Plex-Mono-Semibold";
+  font-weight: 600;
+  src: url("../fonts/ibm_mono-webfont/ibmplexmono-semibold-webfont.eot"); 
+  src: url("../fonts/ibm_mono-webfont/ibmplexmono-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/ibm_mono-webfont/ibmplexmono-semibold-webfont.woff") format("woff"), url("../fonts/ibm_mono-webfont/ibmplexmono-semibold-webfont.ttf") format("truetype"); /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: "IBM-Plex-Mono-Bold";
+  font-weight: 700;
+  src: url("../fonts/ibm_mono-webfont/ibmplexmono-bold-webfont.eot");
+  src: url("../fonts/ibm_mono-webfont/ibmplexmono-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/ibm_mono-webfont/ibmplexmono-bold-webfont.woff") format("woff"), url("../fonts/ibm_mono-webfont/ibmplexmono-bold-webfont.ttf") format("truetype"); /* Safari, Android, iOS */
+}
