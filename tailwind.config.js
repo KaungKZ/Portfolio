@@ -11,7 +11,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      sans: ["IBM-Plex-Sans", "sans-serif"],
+      default: ["IBM-Plex-Sans", "sans-serif"],
       title: ["IBM-Plex-Mono", "sans-serif"],
     },
     colors: {},

@@ -1,3 +1,38 @@
-body {
-    // background: #000;
+.header {
+  &__contact-link {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background: var(--primary-default);
+      top: calc(100% + 10px);
+      transform-origin: bottom right;
+      pointer-events: none;
+    }
+
+    &:hover::after {
+      transform: scaleX(0);
+      // width: 0px;
+      // transform: scaleX(0);
+      // transform-origin: right top;
+    }
+  }
+
+  &__wave {
+    position: absolute;
+
+    &.wave-1 {
+      top: -100px;
+      right: -100px;
+    }
+
+    &.wave-2 {
+      bottom: -125px;
+      left: -100px;
+    }
+  }
 }

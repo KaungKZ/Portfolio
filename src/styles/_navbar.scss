@@ -1,0 +1,46 @@
+.navbar {
+  &__logo:first-child,
+  &__logo:last-child {
+    opacity: 0.75;
+  }
+  &__logo {
+    height: 25px;
+  }
+
+  &__download {
+    // background: darken($red, 1.5%);
+    // font-weight: 100;
+    position: relative;
+    width: 250px;
+    cursor: pointer;
+
+    svg {
+      height: 45px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+
+      rect {
+        fill: none;
+        stroke: #58d9a5;
+        stroke-width: 2;
+        stroke-dasharray: 590;
+        transition: all 0.35s linear;
+      }
+    }
+  }
+
+  &__download:hover {
+    // background: rgba($red, 0);
+    // font-weight: 900;
+    // letter-spacing: 1px;
+
+    rect {
+      stroke-width: 5;
+      stroke-dasharray: 30, 590;
+      stroke-dashoffset: 215;
+      transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+}

@@ -4,6 +4,8 @@
 
 @import "typography";
 @import "home";
+@import "navbar";
+@import "footer";
 
 :root {
   --bg-color: #000;
@@ -19,4 +21,13 @@
 
 body {
   background: var(--bg-color);
+  background-image: url("../images/desktop-body-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right 125px;
+}
+
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
 }
