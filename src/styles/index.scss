@@ -8,7 +8,7 @@
 @import "footer";
 
 :root {
-  --bg-color: #000;
+  --bg-color: #080808;
   --primary-default: #58d9a5;
   --primary-light: #58d9a5;
   --primary-dark: #4bb188;
@@ -17,17 +17,36 @@
   --text-gray-dark: #868686;
   --gray-default: #333333;
   --gray-dark: #181818;
+  --gray-darker: #0d0d0d;
+}
+
+@layer components {
+  .section-title {
+    @apply relative inline-block mb-16;
+
+    h4 {
+      @apply text-primary-default text-xl font-title font-bold;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: calc(0px - 60px);
+      top: 50%;
+      width: 50px;
+      height: 2px;
+      background: var(--primary-default);
+      transform: translateY(50%);
+    }
+  }
 }
 
 body {
   background: var(--bg-color);
-  background-image: url("../images/desktop-body-bg.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: right 125px;
 }
 
-.App {
+.section-fixed-width {
   max-width: 1200px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }

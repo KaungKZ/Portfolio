@@ -1,24 +1,30 @@
 .header {
+  background-image: url("../images/header-bg.png");
+  background-repeat: no-repeat;
+  background-size: initial;
+  background-position: right -20px;
   &__contact-link {
     position: relative;
+    opacity: 0.93;
 
     &::after {
       content: "";
       position: absolute;
       left: 0;
-      height: 1px;
-      width: 100%;
+      height: 2px;
+      width: 0%;
       background: var(--primary-default);
       top: calc(100% + 10px);
       transform-origin: bottom right;
       pointer-events: none;
     }
 
+    &:hover {
+      opacity: 1;
+    }
+
     &:hover::after {
-      transform: scaleX(0);
-      // width: 0px;
-      // transform: scaleX(0);
-      // transform-origin: right top;
+      width: 100%;
     }
   }
 
@@ -26,13 +32,47 @@
     position: absolute;
 
     &.wave-1 {
-      top: -100px;
-      right: -100px;
+      top: 100px;
+      right: 100px;
     }
 
     &.wave-2 {
-      bottom: -125px;
-      left: -100px;
+      bottom: 50px;
+      left: 100px;
     }
+  }
+}
+
+.about {
+  .line-wrapper {
+    &::before,
+    &::after {
+      content: "";
+      width: 100%;
+      position: absolute;
+      left: 0;
+      height: 2px;
+      background: var(--primary-default);
+    }
+    &::before {
+      top: calc(0% - 2px);
+    }
+    &::after {
+      bottom: calc(0% - 2px);
+    }
+  }
+
+  &__bg {
+    top: 40%;
+    left: 40%;
+    // z-index: 0;
+  }
+}
+
+.skills {
+  &__container {
+    grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+    column-gap: 150px;
+    row-gap: 75px;
   }
 }

@@ -11,14 +11,14 @@ export default function Navbar() {
   // }, []);
 
   return (
-    <div className="navbar h-36  flex items-center">
+    <div className="navbar h-36 flex items-center section-fixed-width">
       <nav className=" w-full">
         <ul className="flex justify-between items-center">
           <li>
             <Link to="/" className="text-primary-default flex flex-col">
-              <img src={logo} alt="logo" className="navbar__logo" />
+              <img src={logo} alt="logo" className="navbar__logo opacity-50" />
               <img src={logo} alt="logo" className="navbar__logo mt-1 mb-1" />
-              <img src={logo} alt="logo" className="navbar__logo" />
+              <img src={logo} alt="logo" className="navbar__logo opacity-50" />
             </Link>
           </li>
           <li>

@@ -11,17 +11,27 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      default: ["IBM-Plex-Sans", "sans-serif"],
+      sans: ["IBM-Plex-Sans", "sans-serif"],
       title: ["IBM-Plex-Mono", "sans-serif"],
     },
+
     colors: {},
     extend: {
+      fontSize: {
+        "2.5xl": [
+          "1.675rem",
+          {
+            lineHeight: "2rem",
+          },
+        ],
+      },
       colors: {
         "primary-default": "var(--primary-default)",
         "primary-light": "var(--primary-light)",
         "primary-dark": "var(--primary-dark)",
         "gray-default": "var(--gray-default)",
         "gray-dark": "var(--gray-dark)",
+        "gray-darker": "var(--gray-darker)",
         "text-white": "var(--text-white)",
         "text-gray": "var(--text-gray)",
         "text-gray-dark": "var(--text-gray-dark)",
