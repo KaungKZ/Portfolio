@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import waves from "../images/waves.svg";
 import aboutBg from "../images/about-bg.png";
+import skillsBg1 from "../images/skills-bg-1.png";
+import skillsBg2 from "../images/skills-bg-2.png";
 import figma from "../images/skills-figma.png";
 import gatsby from "../images/skills-gatsby.png";
 import git from "../images/skills-git.png";
@@ -10,8 +12,24 @@ import react from "../images/skills-react.png";
 import scss from "../images/skills-scss.png";
 import tailwind from "../images/skills-tailwind.png";
 import stackoverflow from "../images/skills-stackoverflow.png";
+import stackoverflowText from "../images/stackoverflow-text.png";
+// import slide1 from "../images/skills-react.png";
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+// import slide2 from "../images/projects-slide-2.jpg";
+// import slide3 from "../images/projects-slide-3.jpg";
+// import slide4 from "../images/projects-slide-4.jpg";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.min.css";
+import "swiper/swiper.min.css";
+// import jsonData from "../../public/data/data.json";
+
+// SwiperCore.use([Navigation]);
 
 export default function Home() {
+  // const loadData = () => JSON.parse(JSON.stringify(jsonData));
+  const [projects, setProjects] = useState([]);
+  const swiperRef = React.useRef(null);
   const skillImages = [
     react,
     tailwind,
@@ -24,10 +42,18 @@ export default function Home() {
     stackoverflow,
   ];
 
+  // console.log(data);
+
+  useEffect(() => {
+    fetch("data/data.json")
+      .then((data) => data.json())
+      .then((data) => setProjects(data));
+  }, []);
+
   return (
     <>
       <header className="header pt-28 pb-48 relative">
-        <img src={waves} alt="" className="header__wave wave-1 " />
+        <img src={waves} alt="header-wave" className="header__wave wave-1 " />
         <div className="header__container w-10/12 section-fixed-width ">
           <h1 className="text-9xl text-primary-default font-bold font-default">
             I&#8217;m Kaung.
@@ -58,9 +84,9 @@ export default function Home() {
             </svg>
           </div>
         </div>
-        <img src={waves} alt="" className="header__wave wave-2" />
+        <img src={waves} alt="header-wave" className="header__wave wave-2" />
       </header>
-      <section className="about mt-20 bg-gray-darker mb-40">
+      <section className="about mt-12 bg-gray-darker mb-40">
         <div className="line-wrapper section-fixed-width relative py-20">
           <div className="section-title">
             <h4>A little bit about me</h4>
@@ -103,31 +129,138 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <img src={aboutBg} alt="" className="absolute about__bg" />
+          <img
+            src={aboutBg}
+            alt="about-background"
+            className="absolute about__bg"
+          />
         </div>
       </section>
-      <section className="skills">
+      <section className="skills relative pb-56">
+        <img
+          src={skillsBg1}
+          alt="skills-background"
+          className="skills__bg bg-1 absolute"
+        />
         <div className="skills__wrapper section-fixed-width">
           <div className="section-title">
             <h4>I'm good at these</h4>
           </div>
           <div className="skills__container grid">
-            {skillImages.map((v) => {
+            {skillImages.map((v, i) => {
               return (
-                <div className="skill">
+                <div className="skill relative">
                   <img
                     src={v}
-                    alt="skill-technology"
+                    alt="skill-tech"
                     className="skill-photo"
                     width="85"
                   />
+                  {i + 1 === skillImages.length && (
+                    <div className="absolute stackoverflow-text w-[200px]">
+                      <img
+                        src={stackoverflowText}
+                        alt="stackoverflow-text"
+                        width="200"
+                      />
+                    </div>
+                  )}
                 </div>
               );
             })}
           </div>
         </div>
+        <img
+          src={skillsBg2}
+          alt="skills-background"
+          className="skills__bg bg-2 absolute"
+        />
       </section>
-      <section className="projects"></section>
+      <section className="projects">
+        <div className="projects__wrapper">
+          <div className="title-wrapper section-fixed-width">
+            <div className="section-title">
+              <h4>Some of my Favourite projects</h4>
+            </div>
+          </div>
+
+          <div className="projects__slider-wrapper w-full">
+            <Swiper
+              ref={swiperRef}
+              spaceBetween={50}
+              slidesPerView={2.5}
+              // navigation={true}
+              // loopedSlides={4}
+              // pagination={{ clickable: true }}
+              centeredSlides="true"
+              slidesPerGroup={1}
+              initialSlide={1}
+              // observer={true}
+              loop={true}
+              // onSlideChange={() => console.log("slide change")}
+              // onSwiper={(swiper) => console.log(swiper)}
+              className="projects__slider"
+              // breakpoints={{
+              //   1600: {
+              //     slidesPerView: 2,
+              //   },
+              // }}
+            >
+              {projects.map((project) => {
+                console.log(project.thumbnailBanner);
+                return (
+                  <SwiperSlide key={project.id}>
+                    <div
+                      className={`slide-wrapper relative after:bg-[${project.thumbnailBg}]`}
+                    >
+                      <div className="slide-thumbnail z-10 relative">
+                        <img src={project.thumbnailBanner} />
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
+              {/* <SwiperSlide>
+                <div className={`slide-wrapper relative after:bg-[#333333]`}>
+                  <div className="slide-thumbnail z-1 relative">
+                    <img src={slide1} alt="" />
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                {" "}
+                <div className="slide-wrapper">
+                  <img src={slide1} alt="" />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                {" "}
+                <div className="slide-wrapper">
+                  <img src={slide1} alt="" />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                {" "}
+                <div className="slide-wrapper">
+                  <img src={slide1} alt="" />
+                </div>
+              </SwiperSlide> */}
+            </Swiper>
+            <div
+              id="previousButton"
+              onClick={() => swiperRef.current.swiper.slidePrev()}
+            >
+              ok
+            </div>
+            <div
+              id="nextButton"
+              onClick={() => swiperRef.current.swiper.slideNext()}
+            >
+              ok2
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="contact"></section>
     </>
   );

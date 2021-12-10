@@ -1,14 +1,42 @@
 [
   {
-    "name": "0",
-    "url": "/"
+    "id": 1,
+    "name": "MyMovies",
+    "description": "MyMovies is a website that I made to explore popular, latest and upcoming movies and download them for free. I used multiple public APIs to display movie data, trailers and to be able to download with torrent. My purpose of this project is to create a website about movies using APIs and latest frameworks / libraries with a unique good looking design. I used combination of NextJS and tailwindCSS to optimize the website speed and rendering performance. Additionally, I used swiper library to creates slides for the movies and a library to generate blur hash code for the image.  I used the latest methods and techiques  in this project such as TailwindCSS’s JIT mode, custom css variables, NextJS’s SEO components, NextJS’s vercel free hosting service and so on. There are important features that I implemented such as to show blurred image at the start and show the original image only when it’s ready and to search any movies with search bar. This project took roughly around 3months to finish including the design making form the scratch with Figma.",
+    "url": "/project/mymovies",
+    "projectURL": "",
+    "thumbnailBanner": "/images/projects-slide-1.jpg",
+    "thumbnailBg": "#5ECFA5",
+    "detailBanner": ""
   },
   {
-    "name": "1",
-    "url": "projects/gg"
+    "id": 2,
+    "name": "MyMovies",
+    "description": "MyMovies is a website that I made to explore popular, latest and upcoming movies and download them for free. I used multiple public APIs to display movie data, trailers and to be able to download with torrent. My purpose of this project is to create a website about movies using APIs and latest frameworks / libraries with a unique good looking design. I used combination of NextJS and tailwindCSS to optimize the website speed and rendering performance. Additionally, I used swiper library to creates slides for the movies and a library to generate blur hash code for the image.  I used the latest methods and techiques  in this project such as TailwindCSS’s JIT mode, custom css variables, NextJS’s SEO components, NextJS’s vercel free hosting service and so on. There are important features that I implemented such as to show blurred image at the start and show the original image only when it’s ready and to search any movies with search bar. This project took roughly around 3months to finish including the design making form the scratch with Figma.",
+    "url": "/project/mymovies",
+    "projectURL": "",
+    "thumbnailBanner": "/images/projects-slide-2.jpg",
+    "thumbnailBg": "#5ECFA5",
+    "detailBanner": ""
   },
   {
-    "name": "2",
-    "url": "projects/gg2"
+    "id": 3,
+    "name": "MyMovies",
+    "description": "MyMovies is a website that I made to explore popular, latest and upcoming movies and download them for free. I used multiple public APIs to display movie data, trailers and to be able to download with torrent. My purpose of this project is to create a website about movies using APIs and latest frameworks / libraries with a unique good looking design. I used combination of NextJS and tailwindCSS to optimize the website speed and rendering performance. Additionally, I used swiper library to creates slides for the movies and a library to generate blur hash code for the image.  I used the latest methods and techiques  in this project such as TailwindCSS’s JIT mode, custom css variables, NextJS’s SEO components, NextJS’s vercel free hosting service and so on. There are important features that I implemented such as to show blurred image at the start and show the original image only when it’s ready and to search any movies with search bar. This project took roughly around 3months to finish including the design making form the scratch with Figma.",
+    "url": "/project/mymovies",
+    "projectURL": "",
+    "thumbnailBanner": "/images/projects-slide-3.jpg",
+    "thumbnailBg": "#5ECFA5",
+    "detailBanner": ""
+  },
+  {
+    "id": 4,
+    "name": "MyMovies",
+    "description": "MyMovies is a website that I made to explore popular, latest and upcoming movies and download them for free. I used multiple public APIs to display movie data, trailers and to be able to download with torrent. My purpose of this project is to create a website about movies using APIs and latest frameworks / libraries with a unique good looking design. I used combination of NextJS and tailwindCSS to optimize the website speed and rendering performance. Additionally, I used swiper library to creates slides for the movies and a library to generate blur hash code for the image.  I used the latest methods and techiques  in this project such as TailwindCSS’s JIT mode, custom css variables, NextJS’s SEO components, NextJS’s vercel free hosting service and so on. There are important features that I implemented such as to show blurred image at the start and show the original image only when it’s ready and to search any movies with search bar. This project took roughly around 3months to finish including the design making form the scratch with Figma.",
+    "url": "/project/mymovies",
+    "projectURL": "",
+    "thumbnailBanner": "/images/projects-slide-4.jpg",
+    "thumbnailBg": "#5ECFA5",
+    "detailBanner": ""
   }
 ]
