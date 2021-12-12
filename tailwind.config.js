@@ -3,11 +3,19 @@ const colors = require("tailwindcss/colors");
 
 module.exports = {
   mode: "jit",
-  purge: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-    "./public/index.html",
-    "./src/components/*.{js,jsx}",
-  ],
+  purge: {
+    content: [
+      "./src/**/*.{js,jsx,ts,tsx}",
+      "./public/index.html",
+      "./src/components/*.{js,jsx}",
+    ],
+    safelist: [
+      "after:bg-[#5ECFA5]",
+      "after:bg-[#6C8E70]",
+      "after:bg-[#A99A86]",
+      "after:bg-[#BBA038]",
+    ],
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {

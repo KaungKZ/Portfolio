@@ -187,14 +187,15 @@ export default function Home() {
           <div className="projects__slider-wrapper w-full">
             <Swiper
               ref={swiperRef}
-              spaceBetween={50}
-              slidesPerView={2.5}
+              spaceBetween={90}
+              slidesPerView={2.4}
               // navigation={true}
               // loopedSlides={4}
               // pagination={{ clickable: true }}
               centeredSlides="true"
               slidesPerGroup={1}
-              initialSlide={1}
+              initialSlide={3}
+              speed={800}
               // observer={true}
               loop={true}
               // onSlideChange={() => console.log("slide change")}
@@ -211,10 +212,12 @@ export default function Home() {
                 return (
                   <SwiperSlide key={project.id}>
                     <div
-                      className={`slide-wrapper relative after:bg-[${project.thumbnailBg}]`}
+                      className={`projects__slide relative after:bg-[${project.thumbnailBg}]`}
                     >
-                      <div className="slide-thumbnail z-10 relative">
-                        <img src={project.thumbnailBanner} />
+                      <div className="wrapper">
+                        <div className="thumbnail z-10 relative">
+                          <img src={project.thumbnailBanner} />
+                        </div>
                       </div>
                     </div>
                   </SwiperSlide>
@@ -245,19 +248,21 @@ export default function Home() {
                   <img src={slide1} alt="" />
                 </div>
               </SwiperSlide> */}
+              <div
+                id="previousButton"
+                className="absolute top-2/4 left-0 z-10"
+                onClick={() => swiperRef.current.swiper.slidePrev()}
+              >
+                ok
+              </div>
+              <div
+                id="nextButton"
+                className="absolute top-2/4 right-0 z-10"
+                onClick={() => swiperRef.current.swiper.slideNext()}
+              >
+                ok2
+              </div>
             </Swiper>
-            <div
-              id="previousButton"
-              onClick={() => swiperRef.current.swiper.slidePrev()}
-            >
-              ok
-            </div>
-            <div
-              id="nextButton"
-              onClick={() => swiperRef.current.swiper.slideNext()}
-            >
-              ok2
-            </div>
           </div>
         </div>
       </section>
