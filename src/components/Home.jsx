@@ -29,6 +29,7 @@ import "swiper/swiper.min.css";
 export default function Home() {
   // const loadData = () => JSON.parse(JSON.stringify(jsonData));
   const [projects, setProjects] = useState([]);
+  const [centerSlideWidth, setCenterSlideWidth] = useState();
   const swiperRef = React.useRef(null);
   const skillImages = [
     react,
@@ -41,6 +42,18 @@ export default function Home() {
     gatsby,
     stackoverflow,
   ];
+
+  // useEffect(() => {
+  //   // setCenterSlideWidth(
+  //   //   document.querySelector(".swiper-slide.swiper-slide-active")
+  //   // );
+
+  //   console.log(
+  //     swiperRef.current.swiper.slides[swiperRef.current.swiper.realIndex]
+  //   );
+  // }, []);
+
+  // console.log(centerSlideWidth);
 
   // console.log(data);
 
@@ -176,7 +189,7 @@ export default function Home() {
           className="skills__bg bg-2 absolute"
         />
       </section>
-      <section className="projects">
+      <section className="projects mb-40">
         <div className="projects__wrapper">
           <div className="title-wrapper section-fixed-width">
             <div className="section-title">
@@ -195,6 +208,18 @@ export default function Home() {
               centeredSlides="true"
               slidesPerGroup={1}
               initialSlide={3}
+              onAfterInit={(swiper) => {
+                // console.log(swiper);
+                console.log(swiper.slides);
+                console.log(swiper.slides[3]);
+                // console.log(swiper.el.childNodes[0].childNodes);
+                // console.log(
+                //   document.querySelector(".swiper-slide.swiper-slide-active")
+                // );
+              }}
+              // onSwiper={(swiper) => {
+
+              // }}
               speed={800}
               // observer={true}
               loop={true}
@@ -208,7 +233,7 @@ export default function Home() {
               // }}
             >
               {projects.map((project) => {
-                console.log(project.thumbnailBanner);
+                // console.log(project.thumbnailBanner);
                 return (
                   <SwiperSlide key={project.id}>
                     <div
@@ -220,47 +245,84 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
+                    <div className="projects__summary opacity-0 absolute top-0 left-0 w-full h-32 flex flex-col justify-center items-center z-10">
+                      <h1 className="text-text-white">{project.name}</h1>
+                      <button className="">Check out this project</button>
+                    </div>
                   </SwiperSlide>
                 );
               })}
-              {/* <SwiperSlide>
-                <div className={`slide-wrapper relative after:bg-[#333333]`}>
-                  <div className="slide-thumbnail z-1 relative">
-                    <img src={slide1} alt="" />
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                {" "}
-                <div className="slide-wrapper">
-                  <img src={slide1} alt="" />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                {" "}
-                <div className="slide-wrapper">
-                  <img src={slide1} alt="" />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                {" "}
-                <div className="slide-wrapper">
-                  <img src={slide1} alt="" />
-                </div>
-              </SwiperSlide> */}
               <div
                 id="previousButton"
-                className="absolute top-2/4 left-0 z-10"
+                className="absolute top-2/4 left-0 z-10 projects__navigation previous border-2 border-primary-dark bg-[#fff]"
                 onClick={() => swiperRef.current.swiper.slidePrev()}
               >
-                ok
+                <div className="wrapper flex justify-center items-center flex-col h-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="#4BB188"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M7 16l-4-4m0 0l4-4m-4 4h18"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 -mt-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="#4BB188"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M20 12H4"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 id="nextButton"
-                className="absolute top-2/4 right-0 z-10"
+                className="absolute top-2/4 right-0 z-10 projects__navigation next bg-primary-dark"
                 onClick={() => swiperRef.current.swiper.slideNext()}
               >
-                ok2
+                <div className="wrapper flex justify-center items-center flex-col h-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="#fff"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 -mt-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="#fff"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M20 12H4"
+                    />
+                  </svg>
+                </div>
               </div>
             </Swiper>
           </div>
