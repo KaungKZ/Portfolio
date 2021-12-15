@@ -77,7 +77,7 @@ export default function Home() {
           <div className="header__contact group inline-flex items-end">
             <a
               href=""
-              className="header__contact-link text-primary-default text-xl font-title whitespace-nowrap transition-all duration-300 after:transition-all after:duration-300"
+              className="header__contact-link line-button text-primary-default whitespace-nowrap after::bg-primary-default"
             >
               Get in touch with me
             </a>
@@ -246,8 +246,26 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="projects__summary opacity-0 absolute top-0 left-0 w-full h-32 flex flex-col justify-center items-center z-10">
-                      <h1 className="text-text-white">{project.name}</h1>
-                      <button className="">Check out this project</button>
+                      <h1 className="text-text-white font-title text-4xl font-bold">
+                        {project.name}
+                      </h1>
+                      <a className="line-button text-text-white after::bg-text-white">
+                        Check out this project
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-6 w-6 ml-4"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="#fff"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </a>
                     </div>
                   </SwiperSlide>
                 );

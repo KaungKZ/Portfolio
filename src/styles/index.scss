@@ -40,6 +40,32 @@
       transform: translateY(50%);
     }
   }
+
+  .line-button {
+    @apply text-xl font-title transition-all transition-all duration-300 after:transition-all after:duration-300 flex items-end;
+
+    position: relative;
+    opacity: 0.93;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      top: calc(100% + 10px);
+      transform-origin: bottom right;
+      pointer-events: none;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
 }
 
 body {
