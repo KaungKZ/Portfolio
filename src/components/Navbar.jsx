@@ -22,10 +22,17 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <a className="navbar__download h-[45px] text-primary-default py-2 px-2 flex items-center justify-center w-full font-title font-semibold text-lg">
+            <a className="border-button text-primary-default w-[250px]">
               Download Resume
               <svg>
-                <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                <rect
+                  x="0"
+                  y="0"
+                  fill="none"
+                  width="100%"
+                  height="100%"
+                  className="stroke-[#58d9a5]"
+                />
               </svg>
             </a>
           </li>

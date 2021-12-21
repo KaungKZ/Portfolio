@@ -26,7 +26,7 @@
     @apply relative inline-block mb-16;
 
     h4 {
-      @apply text-primary-default text-xl font-title font-bold;
+      @apply text-primary-default text-xl font-title font-bold capitalize;
     }
 
     &::after {
@@ -42,7 +42,7 @@
   }
 
   .line-button {
-    @apply text-xl font-title transition-all transition-all duration-300 after:transition-all after:duration-300 flex items-end;
+    @apply text-xl font-title transition-all transition-all duration-300 after:transition-all after:duration-300 flex items-center;
 
     position: relative;
     opacity: 0.93;
@@ -64,6 +64,71 @@
 
     &:hover::after {
       width: 100%;
+    }
+  }
+
+  .border-button {
+    @apply h-[45px] py-2 px-4 flex items-center justify-center font-title font-semibold text-lg;
+
+    position: relative;
+    cursor: pointer;
+
+    svg {
+      height: 45px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+
+      rect {
+        fill: none;
+        // stroke: #58d9a5;
+        stroke-width: 2;
+        stroke-dasharray: 590;
+        transition: all 0.35s linear;
+      }
+    }
+
+    &:hover {
+      rect {
+        stroke-width: 5;
+        stroke-dasharray: 30, 590;
+        stroke-dashoffset: 215;
+        transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+    }
+  }
+
+  .border-button-large {
+    @apply h-[45px] py-2 px-4 flex items-center justify-center font-title font-semibold text-lg;
+
+    width: 300px;
+    position: relative;
+    cursor: pointer;
+
+    svg {
+      height: 45px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+
+      rect {
+        fill: none;
+        // stroke: #58d9a5;
+        stroke-width: 2;
+        stroke-dasharray: 690;
+        transition: all 0.35s linear;
+      }
+    }
+
+    &:hover {
+      rect {
+        stroke-width: 5;
+        stroke-dasharray: 30, 660;
+        stroke-dashoffset: 215;
+        transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+      }
     }
   }
 }

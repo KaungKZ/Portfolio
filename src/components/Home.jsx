@@ -3,6 +3,7 @@ import waves from "../images/waves.svg";
 import aboutBg from "../images/about-bg.png";
 import skillsBg1 from "../images/skills-bg-1.png";
 import skillsBg2 from "../images/skills-bg-2.png";
+import projectsBg from "../images/projects-bg.png";
 import figma from "../images/skills-figma.png";
 import gatsby from "../images/skills-gatsby.png";
 import git from "../images/skills-git.png";
@@ -14,7 +15,7 @@ import tailwind from "../images/skills-tailwind.png";
 import stackoverflow from "../images/skills-stackoverflow.png";
 import stackoverflowText from "../images/stackoverflow-text.png";
 // import slide1 from "../images/skills-react.png";
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+// import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 // import slide2 from "../images/projects-slide-2.jpg";
 // import slide3 from "../images/projects-slide-3.jpg";
 // import slide4 from "../images/projects-slide-4.jpg";
@@ -149,13 +150,8 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="skills relative pb-56">
-        <img
-          src={skillsBg1}
-          alt="skills-background"
-          className="skills__bg bg-1 absolute"
-        />
-        <div className="skills__wrapper section-fixed-width">
+      <section className="skills pb-56">
+        <div className="skills__wrapper section-fixed-width relative">
           <div className="section-title">
             <h4>I'm good at these</h4>
           </div>
@@ -182,15 +178,20 @@ export default function Home() {
               );
             })}
           </div>
+          <img
+            src={skillsBg1}
+            alt="skills-background"
+            className="skills__bg bg-1 absolute"
+          />
+          <img
+            src={skillsBg2}
+            alt="skills-background"
+            className="skills__bg bg-2 absolute"
+          />
         </div>
-        <img
-          src={skillsBg2}
-          alt="skills-background"
-          className="skills__bg bg-2 absolute"
-        />
       </section>
-      <section className="projects mb-40">
-        <div className="projects__wrapper">
+      <section className="projects pb-56">
+        <div className="projects__wrapper relative">
           <div className="title-wrapper section-fixed-width">
             <div className="section-title">
               <h4>Some of my Favourite projects</h4>
@@ -202,35 +203,26 @@ export default function Home() {
               ref={swiperRef}
               spaceBetween={90}
               slidesPerView={2.4}
-              // navigation={true}
-              // loopedSlides={4}
-              // pagination={{ clickable: true }}
               centeredSlides="true"
               slidesPerGroup={1}
               initialSlide={3}
-              onAfterInit={(swiper) => {
-                // console.log(swiper);
-                console.log(swiper.slides);
-                console.log(swiper.slides[3]);
-                // console.log(swiper.el.childNodes[0].childNodes);
-                // console.log(
-                //   document.querySelector(".swiper-slide.swiper-slide-active")
-                // );
-              }}
-              // onSwiper={(swiper) => {
-
-              // }}
               speed={800}
               // observer={true}
               loop={true}
-              // onSlideChange={() => console.log("slide change")}
-              // onSwiper={(swiper) => console.log(swiper)}
               className="projects__slider"
-              // breakpoints={{
-              //   1600: {
-              //     slidesPerView: 2,
-              //   },
-              // }}
+              breakpoints={{
+                1280: {
+                  spaceBetween: 90,
+                },
+                1024: {
+                  spaceBetween: 50,
+                  slidesPerView: 2.2,
+                },
+                600: {
+                  spaceBetween: 50,
+                  slidesPerView: 1.5,
+                },
+              }}
             >
               {projects.map((project) => {
                 // console.log(project.thumbnailBanner);
@@ -245,24 +237,20 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                    <div className="projects__summary opacity-0 absolute top-0 left-0 w-full h-32 flex flex-col justify-center items-center z-10">
-                      <h1 className="text-text-white font-title text-4xl font-bold">
+                    <div className="projects__summary opacity-0 absolute top-0 left-0 w-full h-28 flex flex-col justify-center items-center z-10">
+                      {/* <h1 className="text-text-white font-title text-4xl font-bold">
                         {project.name}
-                      </h1>
-                      <a className="line-button text-text-white after::bg-text-white">
+                      </h1> */}
+                      <a className="border-button-large text-text-white">
                         Check out this project
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6 ml-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="#fff"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
+                        <svg>
+                          <rect
+                            x="0"
+                            y="0"
+                            fill="none"
+                            className="stroke-[#ffffff]"
+                            width="100%"
+                            height="100%"
                           />
                         </svg>
                       </a>
@@ -272,7 +260,7 @@ export default function Home() {
               })}
               <div
                 id="previousButton"
-                className="absolute top-2/4 left-0 z-10 projects__navigation previous border-2 border-primary-dark bg-[#fff]"
+                className="absolute top-2/4 left-16 z-10 projects__navigation previous border-2 border-primary-dark bg-[#fff]"
                 onClick={() => swiperRef.current.swiper.slidePrev()}
               >
                 <div className="wrapper flex justify-center items-center flex-col h-full">
@@ -308,7 +296,7 @@ export default function Home() {
               </div>
               <div
                 id="nextButton"
-                className="absolute top-2/4 right-0 z-10 projects__navigation next bg-primary-dark"
+                className="absolute top-2/4 right-16 z-10 projects__navigation next bg-primary-dark"
                 onClick={() => swiperRef.current.swiper.slideNext()}
               >
                 <div className="wrapper flex justify-center items-center flex-col h-full">
@@ -344,9 +332,26 @@ export default function Home() {
               </div>
             </Swiper>
           </div>
+          <img src={projectsBg} alt="" className="absolute projects__bg" />
         </div>
       </section>
-      <section className="contact"></section>
+      <section className="contact mt-12">
+        <div className="contact__wrapper section-fixed-width relative">
+          <div className="section-title">
+            <h4>Let’s make something special</h4>
+          </div>
+          <div className="contact__content">
+            <div className="left">
+              <div className="content-title"></div>
+              <div className="contact__socialmedias"></div>
+            </div>
+            <div className="right">
+              <div className="content-title"></div>
+              <div className="contact__form"></div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
