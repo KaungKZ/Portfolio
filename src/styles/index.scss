@@ -45,7 +45,7 @@
     @apply text-xl font-title transition-all transition-all duration-300 after:transition-all after:duration-300 flex items-center;
 
     position: relative;
-    opacity: 0.93;
+    opacity: 1;
 
     &::after {
       content: "";
@@ -58,9 +58,9 @@
       pointer-events: none;
     }
 
-    &:hover {
-      opacity: 1;
-    }
+    // &:hover {
+    //   opacity: 1;
+    // }
 
     &:hover::after {
       width: 100%;
@@ -128,6 +128,80 @@
         stroke-dasharray: 30, 660;
         stroke-dashoffset: 215;
         transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+    }
+  }
+  .contact {
+    &__socialmedias .detail {
+      h3 {
+        @apply text-text-gray font-semibold text-sm;
+      }
+
+      a {
+        @apply text-text-white font-bold text-2xl underline mt-1;
+      }
+    }
+
+    &__form {
+      .input-field {
+        @apply w-full mb-3 last:mb-0 relative;
+
+        textarea:focus,
+        input:focus {
+          outline: none;
+        }
+
+        .icon {
+          opacity: 0.75;
+        }
+
+        input {
+          @apply w-full h-12 bg-gray-dark px-4 py-2 text-base text-text-white transition border-0;
+          border: 1px solid var(--gray-dark);
+          &::placeholder {
+            @apply text-text-gray-dark;
+          }
+
+          &:focus + .icon,
+          &:valid + .icon {
+            opacity: 1;
+          }
+
+          &:focus {
+            border: 1px solid rgba(88, 217, 165, 0.65);
+          }
+        }
+
+        textarea {
+          @apply w-full h-[340px] bg-gray-dark px-4 py-2 text-base text-text-white resize-none transition;
+
+          border: 1px solid var(--gray-dark);
+          outline: none;
+
+          &::placeholder {
+            @apply text-text-gray-dark;
+          }
+
+          &:focus {
+            border: 1px solid rgba(88, 217, 165, 0.65);
+          }
+
+          // &:focus-within,
+          // &:focus {
+          //   & + .icon {
+          //     opacity: 1;
+          //   }
+          // }
+        }
+
+        textarea:focus + .icon,
+        textarea:valid + .icon {
+          opacity: 1;
+        }
+
+        .icon {
+          @apply absolute top-1/2 -translate-y-1/2 right-[16px] last:top-[10px] last:translate-y-0 transition;
+        }
       }
     }
   }
