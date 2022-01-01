@@ -4,6 +4,7 @@ import aboutBg from "../images/about-bg.png";
 import skillsBg1 from "../images/skills-bg-1.png";
 import skillsBg2 from "../images/skills-bg-2.png";
 import projectsBg from "../images/projects-bg.png";
+import contactBg from "../images/contact-bg.png";
 import figma from "../images/skills-figma.png";
 import gatsby from "../images/skills-gatsby.png";
 import git from "../images/skills-git.png";
@@ -21,15 +22,18 @@ import twitter from "../images/twitter.svg";
 import linkedin from "../images/linkedin.svg";
 import github from "../images/github.svg";
 import whatsapp from "../images/whatsapp.svg";
-import { Formik, useFormik } from "formik";
+import { useFormik } from "formik";
 import emailjs, { send } from "emailjs-com";
+import { Link } from "react-router-dom";
+import headerBg1 from "../images/header-bg-1.png";
+import headerBg2 from "../images/header-bg-2.png";
 
 // SwiperCore.use([Navigation]);
 
 export default function Home() {
   // const loadData = () => JSON.parse(JSON.stringify(jsonData));
   const [projects, setProjects] = useState([]);
-  const [centerSlideWidth, setCenterSlideWidth] = useState();
+  // const [centerSlideWidth, setCenterSlideWidth] = useState();
   const swiperRef = React.useRef(null);
   const skillImages = [
     react,
@@ -97,7 +101,7 @@ export default function Home() {
     },
   });
 
-  console.log(formik.errors);
+  // console.log(formik.errors);
 
   useEffect(() => {
     fetch("data/data.json")
@@ -107,19 +111,20 @@ export default function Home() {
 
   return (
     <>
-      <header className="header pt-28 pb-48 relative">
-        <img src={waves} alt="header-wave" className="header__wave wave-1 " />
-        <div className="header__container w-10/12 section-fixed-width ">
+      <header className="header pt-28 pb-48">
+        <div className="header__container w-10/12 section-fixed-width relative">
+          <img src={waves} alt="header-wave" className="header__wave wave-1 " />
+          <img src={headerBg1} alt="" className="absolute header__bg bg-1" />
           <h1 className="text-9xl text-primary-default font-bold font-default">
             I&#8217;m Kaung.
           </h1>
           <h3 className="text-2.5xl text-text-white mt-8 mb-12 leading-relaxed max-w-[700px] font-default">
             Based in Myanmar, I’m Frontend developer and I make cool websites.
           </h3>
-          <div className="header__contact group inline-flex items-end">
+          <div className="header__contact group inline-flex items-end arrow-button">
             <a
-              href=""
-              className="header__contact-link line-button text-primary-default whitespace-nowrap after::bg-primary-default"
+              href="#"
+              className="header__contact-link text-xl after::bg-primary-default"
             >
               Get in touch with me
             </a>
@@ -138,8 +143,9 @@ export default function Home() {
               />
             </svg>
           </div>
+          <img src={headerBg2} alt="" className="absolute header__bg bg-2" />
+          <img src={waves} alt="header-wave" className="header__wave wave-2" />
         </div>
-        <img src={waves} alt="header-wave" className="header__wave wave-2" />
       </header>
       <section className="about mt-12 bg-gray-darker mb-40">
         <div className="line-wrapper section-fixed-width relative py-20">
@@ -161,9 +167,28 @@ export default function Home() {
                   ambitious projects with positive people.
                 </p>
               </div>
-              <div className="text-primary-default">
-                <a href="">Let’s make something special</a>
+              <div className="about__getintouch group inline-flex items-center arrow-button">
+                <a href="#" className="after::bg-primary-default text-base">
+                  Let’s make something special
+                </a>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 ml-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="#58d9a5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
               </div>
+              {/* <div className="text-primary-default">
+                <a href="#">Let’s make something special</a>
+              </div> */}
             </div>
             <div className="w-2/5 -mt-12 flex flex-col justify-between">
               <div className="about__exp mb-8">
@@ -282,8 +307,12 @@ export default function Home() {
                       {/* <h1 className="text-text-white font-title text-4xl font-bold">
                         {project.name}
                       </h1> */}
-                      <a className="border-button-large text-text-white">
-                        Check out this project
+                      <Link
+                        to={`/projects/${project.slug}`}
+                        state={{ detail: project }}
+                        className="border-button-large text-text-white"
+                      >
+                        See Detail
                         <svg>
                           <rect
                             x="0"
@@ -294,7 +323,7 @@ export default function Home() {
                             height="100%"
                           />
                         </svg>
-                      </a>
+                      </Link>
                     </div>
                   </SwiperSlide>
                 );
@@ -559,6 +588,7 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <img src={contactBg} alt="" className="absolute contact__bg" />
         </div>
       </section>
     </>
