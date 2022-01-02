@@ -34,7 +34,7 @@ export default function ProjectDetail() {
             <div className=" group inline-flex items-center arrow-button mr-12">
               <a
                 href="#"
-                className="after::bg-primary-default text-lg font-semibold"
+                className="after::bg-primary-default text-base font-semibold"
               >
                 View Source Code
               </a>
@@ -55,7 +55,7 @@ export default function ProjectDetail() {
             <div className=" group inline-flex items-center arrow-button">
               <a
                 href="#"
-                className="after::bg-primary-default text-lg font-semibold"
+                className="after::bg-primary-default text-base font-semibold"
               >
                 View Live Site
               </a>
@@ -91,8 +91,24 @@ export default function ProjectDetail() {
               </svg>
             </div>
           </div>
-          <div className="detail__description"></div>
-          <div className="detail__techstack"></div>
+          <div className="detail__descriptionm mt-10">
+            <p
+              className="text-[#F3F4F6] text-lg leading-loose"
+              dangerouslySetInnerHTML={{ __html: detail["description"] }}
+            ></p>
+          </div>
+          <div className="detail__techstack mt-10">
+            <h3 className="text-text-white">Techstacks</h3>
+            <div>
+              {detail.techstacks.map((stack) => {
+                return (
+                  <span className="uppercase text-text-white text-sm py-1 px-4 bg-gray-dark rounded mr-4 last:mr-0">
+                    {stack}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
         </div>
         {/* call contact component  */}
       </div>

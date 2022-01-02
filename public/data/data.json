@@ -3,11 +3,12 @@
     "id": 1,
     "name": "MyMovies",
     "finishedDate": "2021",
-    "description": "MyMovies is a website that I made to explore popular, latest and upcoming movies and download them for free. I used multiple public APIs to display movie data, trailers and to be able to download with torrent. My purpose of this project is to create a website about movies using APIs and latest frameworks / libraries with a unique good looking design. I used combination of NextJS and tailwindCSS to optimize the website speed and rendering performance. Additionally, I used swiper library to creates slides for the movies and a library to generate blur hash code for the image.  I used the latest methods and techiques  in this project such as TailwindCSS’s JIT mode, custom css variables, NextJS’s SEO components, NextJS’s vercel free hosting service and so on. There are important features that I implemented such as to show blurred image at the start and show the original image only when it’s ready and to search any movies with search bar. This project took roughly around 3months to finish including the design making form the scratch with Figma.",
+    "description": "MyMovies is a website that I made to explore popular, latest and upcoming movies and download them for free. I used multiple public APIs to display movie data, trailers and to be able to download with torrent. <br /> <br /> My purpose of this project is to create a website about movies using APIs and latest frameworks / libraries with a unique good looking design. I used combination of NextJS and tailwindCSS to optimize the website speed and rendering performance. Additionally, I used swiper library to creates slides for the movies and a library to generate blur hash code for the image.  I used the latest methods and techiques  in this project such as TailwindCSS’s JIT mode, custom css variables, NextJS’s SEO components, NextJS’s vercel free hosting service and so on. There are important features that I implemented such as to show blurred image at the start and show the original image only when it’s ready and to search any movies with search bar. This project took roughly around 3months to finish including the design making form the scratch with Figma.",
     "slug": "mymovies",
     "projectURL": "",
     "thumbnailBanner": "/images/projects-slide-1.jpg",
     "mainBanner": "/images/project-detail-1.png",
+    "techstacks": ["nextjs", "tailwindcss", "scss"],
     "thumbnailBg": "#5ECFA5"
   },
   {
@@ -19,6 +20,7 @@
     "projectURL": "",
     "thumbnailBanner": "/images/projects-slide-2.jpg",
     "mainBanner": "/images/project-detail-2.png",
+    "techstacks": ["nextjs", "tailwindcss", "scss"],
     "thumbnailBg": "#A99A86"
   },
   {
@@ -30,6 +32,7 @@
     "projectURL": "",
     "thumbnailBanner": "/images/projects-slide-3.jpg",
     "mainBanner": "/images/project-detail-3.png",
+    "techstacks": ["nextjs", "tailwindcss", "scss"],
     "thumbnailBg": "#6C8E70"
   },
   {
@@ -41,6 +44,7 @@
     "projectURL": "",
     "thumbnailBanner": "/images/projects-slide-4.jpg",
     "mainBanner": "/images/project-detail-4.png",
+    "techstacks": ["nextjs", "tailwindcss", "scss"],
     "thumbnailBg": "#BBA038"
   }
 ]
