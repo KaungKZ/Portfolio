@@ -22,7 +22,12 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <a className="border-button text-primary-default w-[250px]">
+            <Link
+              to="/images/project-detail-1.png"
+              target="_blank"
+              download
+              className="border-button text-primary-default w-[250px]"
+            >
               Download Resume
               <svg>
                 <rect
@@ -34,7 +39,7 @@ export default function Navbar() {
                   className="stroke-[#58d9a5]"
                 />
               </svg>
-            </a>
+            </Link>
           </li>
           {/* {test.map((v) => {
             return (

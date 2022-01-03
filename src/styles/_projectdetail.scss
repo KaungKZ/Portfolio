@@ -1,0 +1,13 @@
+.detail {
+  &__bg {
+    z-index: -1;
+  }
+  &__bg.bg-1 {
+    top: -11px;
+    left: 63px;
+  }
+  &__bg.bg-2 {
+    right: -94px;
+    bottom: -65px;
+  }
+}
