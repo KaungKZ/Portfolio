@@ -33,15 +33,15 @@ export default function Home() {
   // const [centerSlideWidth, setCenterSlideWidth] = useState();
   const swiperRef = React.useRef(null);
   const skillImages = [
-    react,
-    tailwind,
-    nextjs,
-    scss,
-    git,
-    js,
-    figma,
-    gatsby,
-    stackoverflow,
+    { name: "react", img: react },
+    { name: "tailwind", img: tailwind },
+    { name: "nextjs", img: nextjs },
+    { name: "scss", img: scss },
+    { name: "git", img: git },
+    { name: "javascript", img: js },
+    { name: "figma", img: figma },
+    { name: "gatsby", img: gatsby },
+    { name: "stackoverflow", img: stackoverflow },
   ];
 
   useEffect(() => {
@@ -160,7 +160,7 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="w-2/5 -mt-12 flex flex-col justify-between">
+            <div className="w-2/5 -mt-12 flex flex-col justify-between text-center">
               <div className="about__exp mb-8">
                 <h1 className="text-primary-default text-8xl font-bold font-title">
                   2+
@@ -194,9 +194,13 @@ export default function Home() {
           <div className="skills__container grid">
             {skillImages.map((v, i) => {
               return (
-                <div className="skill relative flex items-end" key={i}>
+                <div
+                  className="skill relative flex items-end"
+                  key={i}
+                  data-label={v.name}
+                >
                   <img
-                    src={v}
+                    src={v.img}
                     alt="skill-tech"
                     className="skill-photo"
                     width="85"
@@ -256,7 +260,7 @@ export default function Home() {
                 },
                 600: {
                   spaceBetween: 50,
-                  slidesPerView: 1.5,
+                  slidesPerView: 2,
                 },
               }}
             >

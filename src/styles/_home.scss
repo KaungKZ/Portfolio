@@ -3,9 +3,9 @@
   // background-repeat: no-repeat;
   // background-size: initial;
   // background-position: right -20px;
-  // &__contact-link {
-  //   position: relative;
-  //   opacity: 1;
+  &__contact-link {
+    z-index: 1;
+  }
 
   //   &::after {
   //     content: "";
@@ -92,6 +92,31 @@
     .stackoverflow-text {
       top: 100%;
       left: 30px;
+    }
+  }
+
+  .skill {
+    width: fit-content;
+    &:before {
+      content: attr(data-label);
+      position: absolute;
+      bottom: -60px;
+      // left: 10.625px;
+      left: 50%;
+      z-index: 1;
+      transform: translateX(-50%);
+      background: var(--gray-default);
+      color: var(--text-white);
+      padding: 4px 10px;
+      border-radius: 25px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 300ms ease;
+    }
+
+    &:hover:before {
+      opacity: 1;
+      pointer-events: all;
     }
   }
 
@@ -254,6 +279,90 @@
       .title-wrapper {
         max-width: unset;
       }
+    }
+  }
+}
+
+@media (max-width: 1360px) {
+  .projects {
+    // max-width: 85%;
+  }
+  .header {
+    &__bg.bg-1 {
+      left: -15px;
+    }
+  }
+
+  .contact {
+    &__content .left {
+      margin-right: 5rem;
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .header {
+    padding-bottom: 10rem;
+
+    &__wave.wave-1 {
+      right: 0px;
+    }
+  }
+  .skills {
+    padding-bottom: 12rem;
+  }
+  .projects {
+    padding-bottom: 11rem;
+
+    &__bg {
+      bottom: -145px;
+    }
+  }
+  .contact {
+    &__content {
+      .left,
+      .right {
+        .content-title {
+          line-height: 1.375;
+        }
+      }
+    }
+    &__socialmedias,
+    &__form {
+      margin-top: 2.5rem;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .header {
+    padding-bottom: 7rem;
+    padding-top: 5rem;
+
+    &__container {
+      h1 {
+        z-index: 1;
+        position: relative;
+      }
+    }
+    &__bg.bg-1 {
+      top: -61px;
+    }
+    &__bg.bg-2 {
+      bottom: -70px;
+    }
+    &__wave.wave-2 {
+      bottom: -110px;
+    }
+
+    &__bg,
+    &__wave {
+      transform: scale(0.8);
+    }
+  }
+  .skills {
+    .skill-photo {
+      width: 80px;
     }
   }
 }

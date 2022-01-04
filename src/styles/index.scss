@@ -42,28 +42,6 @@
     }
   }
 
-  // .line-button {
-  //   @apply text-xl font-title transition-all duration-300 after:transition-all after:duration-300 flex items-center;
-
-  //   position: relative;
-  //   opacity: 1;
-
-  //   &::after {
-  //     content: "";
-  //     position: absolute;
-  //     left: 0;
-  //     height: 2px;
-  //     width: 0%;
-  //     top: calc(100% + 10px);
-  //     transform-origin: bottom right;
-  //     pointer-events: none;
-  //   }
-
-  //   &:hover::after {
-  //     width: 100%;
-  //   }
-  // }
-
   .border-button {
     @apply h-[45px] py-2 px-4 flex items-center justify-center font-title font-semibold text-lg;
 
@@ -250,4 +228,10 @@ body {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media (max-width: 1360px) {
+  .section-fixed-width {
+    max-width: 85%;
+  }
 }
