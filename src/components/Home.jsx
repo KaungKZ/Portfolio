@@ -1,30 +1,30 @@
 import React, { useState, useEffect } from "react";
-import waves from "../images/waves.svg";
-import aboutBg from "../images/about-bg.png";
-import skillsBg1 from "../images/skills-bg-1.png";
-import skillsBg2 from "../images/skills-bg-2.png";
-import projectsBg from "../images/projects-bg.png";
+import waves from "../assets/images/waves.svg";
+import aboutBg from "../assets/images/about-bg.png";
+import skillsBg1 from "../assets/images/skills-bg-1.png";
+import skillsBg2 from "../assets/images/skills-bg-2.png";
+import projectsBg from "../assets/images/projects-bg.png";
 
-import figma from "../images/skills-figma.png";
-import gatsby from "../images/skills-gatsby.png";
-import git from "../images/skills-git.png";
-import js from "../images/skills-js.png";
-import nextjs from "../images/skills-nextjs.png";
-import react from "../images/skills-react.png";
-import scss from "../images/skills-scss.png";
-import tailwind from "../images/skills-tailwind.png";
-import stackoverflow from "../images/skills-stackoverflow.png";
-import stackoverflowText from "../images/stackoverflow-text.png";
+import figma from "../assets/images/skills-figma.png";
+import gatsby from "../assets/images/skills-gatsby.png";
+import git from "../assets/images/skills-git.png";
+import js from "../assets/images/skills-js.png";
+import nextjs from "../assets/images/skills-nextjs.png";
+import react from "../assets/images/skills-react.png";
+import scss from "../assets/images/skills-scss.png";
+import tailwind from "../assets/images/skills-tailwind.png";
+import stackoverflow from "../assets/images/skills-stackoverflow.png";
+import stackoverflowText from "../assets/images/stackoverflow-text.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 
 import { Link } from "react-router-dom";
-import headerBg1 from "../images/header-bg-1.png";
-import headerBg2 from "../images/header-bg-2.png";
+import headerBg1 from "../assets/images/header-bg-1.png";
+import headerBg2 from "../assets/images/header-bg-2.png";
 
 import Contact from "./Contact";
-import { data } from "./data";
+import { data } from "../data/data";
 import { Parallax } from "react-scroll-parallax";
 // SwiperCore.use([Navigation]);
 
@@ -51,13 +51,6 @@ export default function Home() {
   //   fetch(`${process.env.PUBLIC_URL}/data/data.json`)
   //     .then((data) => data.json())
   //     .then((data) => setProjects(data));
-  // }, []);
-
-  // useEffect(() => {
-  //   let url = window.location.href.split("/");
-  //   let target = url[url.length - 1].toLowerCase();
-  //   let element = document.getElementById(target);
-  //   element && element.scrollIntoView({ behavior: "smooth", block: "start" });
   // }, []);
 
   return (
@@ -117,7 +110,7 @@ export default function Home() {
             <h4>A little bit about me</h4>
           </div>
           <div className="about__container flex z-10 relative">
-            <div className="w-3/5 mr-20">
+            <div className="w-3/5 mr-20 about__left">
               <div className="mb-9 text-xl">
                 <p className="text-text-white text-xl leading-relaxed">
                   Since 2019, I’ve been learning web development with different
@@ -163,7 +156,7 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="w-2/5 -mt-12 flex flex-col justify-between text-center">
+            <div className="w-2/5 -mt-12 flex flex-col justify-between text-center about__right">
               <div className="about__exp mb-8">
                 <h1 className="text-primary-default text-8xl font-bold font-title">
                   2+
@@ -261,9 +254,9 @@ export default function Home() {
                   spaceBetween: 50,
                   slidesPerView: 2.2,
                 },
-                600: {
+                768: {
                   spaceBetween: 50,
-                  slidesPerView: 2,
+                  slidesPerView: 1.6,
                 },
               }}
             >
@@ -278,8 +271,8 @@ export default function Home() {
                         <div className="thumbnail z-10 relative">
                           <img
                             src={
-                              require("../images/" + project.thumbnailBanner)
-                                .default
+                              require("../assets/images/" +
+                                project.thumbnailBanner).default
                             }
                           />
                         </div>

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useLocation, Navigate } from "react-router-dom";
 import Contact from "./Contact";
-import headerBg1 from "../images/header-bg-1.png";
-import headerBg2 from "../images/header-bg-2.png";
+import headerBg1 from "../assets/images/header-bg-1.png";
+import headerBg2 from "../assets/images/header-bg-2.png";
 // import { useEffect } from "react";
 
 export default function ProjectDetail() {
@@ -31,7 +31,7 @@ export default function ProjectDetail() {
           <div className="detail__banner relative -ml-8">
             <img src={headerBg1} alt="" className="absolute detail__bg bg-1" />
             <img
-              src={require("../images/" + detail.mainBanner).default}
+              src={require("../assets/images/" + detail.mainBanner).default}
               alt={detail.name}
               width="940"
               className="mx-auto"
@@ -52,6 +52,8 @@ export default function ProjectDetail() {
                 <a
                   href={detail.githubURL}
                   className="after::bg-primary-default text-lg items-center font-semibold"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   View Source Code
                   <svg
@@ -73,6 +75,8 @@ export default function ProjectDetail() {
                 <a
                   href={detail.projectURL}
                   className="after::bg-primary-default text-lg items-center font-semibold"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   View Live Site
                   <svg

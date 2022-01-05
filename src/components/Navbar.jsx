@@ -1,15 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Routes, Route, Outlet, Link } from "react-router-dom";
-import logo from "../images/logo.png";
+import React from "react";
+import { Outlet, Link } from "react-router-dom";
+import logo from "../assets/images/logo.png";
+import MyPDF from "../assets/resumev7.pdf";
 
 export default function Navbar() {
-  // const [test, setTest] = useState([]);
-  // useEffect(() => {
-  //   fetch("/data/data.json")
-  //     .then((data) => data.json())
-  //     .then((data) => setTest(data));
-  // }, []);
-
   return (
     <div className="navbar h-36 flex items-center section-fixed-width">
       <nav className=" w-full">
@@ -23,9 +17,9 @@ export default function Navbar() {
           </li>
           <li>
             <Link
-              to="/images/project-detail-1.png"
+              to={MyPDF}
               target="_blank"
-              download
+              download="Resume.pdf"
               className="border-button text-primary-default w-[250px]"
             >
               Download Resume
@@ -41,15 +35,6 @@ export default function Navbar() {
               </svg>
             </Link>
           </li>
-          {/* {test.map((v) => {
-            return (
-              <li>
-                <Link to={v.url} className="text-primary-default">
-                  {v.name}
-                </Link>
-              </li>
-            );
-          })} */}
         </ul>
       </nav>
       <Outlet />

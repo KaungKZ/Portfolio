@@ -417,6 +417,10 @@
     }
   }
   .skills {
+    .skill {
+      width: unset;
+      justify-content: center;
+    }
     .skill-photo {
       width: 80px;
     }
@@ -430,6 +434,9 @@
   }
   .contact {
     &__content {
+      .left {
+        margin-right: 3rem;
+      }
       .left,
       .right {
         .content-title {
@@ -440,5 +447,64 @@
   }
 }
 
+@media (max-width: 928px) {
+  .skills {
+    &__container {
+      .stackoverflow-text {
+        display: none;
+        // transform: scaleX(-1);
+      }
+    }
+  }
+}
+
 @media (max-width: 768px) {
+  .header {
+    padding-bottom: 5rem;
+    padding-top: 4rem;
+
+    &__wave {
+      display: none;
+    }
+    &__container {
+      h1 {
+        font-size: 7rem;
+      }
+      h3 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .about {
+    .line-wrapper {
+      padding-bottom: 4rem;
+      padding-top: 4rem;
+
+      .section-title {
+        margin-bottom: 2.5rem;
+      }
+    }
+
+    &__exp h1,
+    &__projects h1 {
+      font-size: 5rem;
+    }
+
+    &__container {
+      flex-direction: column;
+    }
+
+    &__left {
+      margin-right: 0px;
+    }
+    &__left,
+    &__right {
+      width: 100%;
+    }
+    &__right {
+      margin-top: 3.5rem;
+      flex-direction: row;
+    }
+  }
 }

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import twitter from "../images/twitter.svg";
-import linkedin from "../images/linkedin.svg";
-import github from "../images/github.svg";
-import whatsapp from "../images/whatsapp.svg";
-import contactBg from "../images/contact-bg.png";
+import twitter from "../assets/images/twitter.svg";
+import linkedin from "../assets/images/linkedin.svg";
+import github from "../assets/images/github.svg";
+import whatsapp from "../assets/images/whatsapp.svg";
+import contactBg from "../assets/images/contact-bg.png";
 
 import { useFormik } from "formik";
-import emailjs, { send } from "emailjs-com";
+import emailjs from "emailjs-com";
 
 export default function Contact() {
   const [formSuccess, setFormSuccess] = useState({
@@ -67,11 +67,25 @@ export default function Contact() {
                 success: true,
                 loading: false,
               });
+
+              setTimeout(() => {
+                setFormSuccess({
+                  ...formSuccess,
+                  success: null,
+                });
+              }, 3000);
             } else {
               setFormSuccess({
                 success: false,
                 loading: false,
               });
+
+              setTimeout(() => {
+                setFormSuccess({
+                  ...formSuccess,
+                  success: null,
+                });
+              }, 7000);
             }
             // console.log(result.text);
           },
@@ -81,9 +95,18 @@ export default function Contact() {
               success: false,
               loading: false,
             });
+
+            setTimeout(() => {
+              setFormSuccess({
+                ...formSuccess,
+                success: null,
+              });
+            }, 7000);
           }
         )
-        .finally(() => formik.resetForm());
+        .finally(() => {
+          formik.resetForm();
+        });
       // alert(JSON.stringify(values, null, 2));
     },
   });
@@ -297,13 +320,46 @@ export default function Contact() {
                   {/* Send */}
                 </button>
                 {formSuccess.success === true ? (
-                  <span className="text-text-white">
+                  <div className="text-text-white flex items-center mt-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 mr-2 flex-shrink-0"
+                      viewBox="0 0 20 20"
+                      fill="#4bb188"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>{" "}
                     Your message has been sent successfully !
-                  </span>
+                  </div>
                 ) : formSuccess.success === false ? (
-                  <span className="text-text-white">
-                    There was an error while sending the message
-                  </span>
+                  <div className="text-text-white flex items-center mt-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 mr-2 flex-shrink-0"
+                      viewBox="0 0 20 20"
+                      fill="#FFB818"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <span>
+                      There was an error while sending the message, please try
+                      again or send me an email{" "}
+                      <a
+                        href="mailto:kaungkzdev@gmail.com"
+                        className="text-primary-default underline"
+                      >
+                        here
+                      </a>
+                    </span>
+                  </div>
                 ) : null}
               </form>
             </div>
