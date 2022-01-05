@@ -31,7 +31,7 @@ export default function ProjectDetail() {
           <div className="detail__banner relative -ml-8">
             <img src={headerBg1} alt="" className="absolute detail__bg bg-1" />
             <img
-              src={detail.mainBanner}
+              src={require("../images/" + detail.mainBanner).default}
               alt={detail.name}
               width="940"
               className="mx-auto"

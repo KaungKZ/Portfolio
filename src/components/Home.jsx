@@ -24,12 +24,15 @@ import headerBg1 from "../images/header-bg-1.png";
 import headerBg2 from "../images/header-bg-2.png";
 
 import Contact from "./Contact";
+import { data } from "./data";
 import { Parallax } from "react-scroll-parallax";
 // SwiperCore.use([Navigation]);
 
 export default function Home() {
   // const loadData = () => JSON.parse(JSON.stringify(jsonData));
-  const [projects, setProjects] = useState([]);
+  const [projects] = useState(data);
+
+  // console.log(data);
   // const [centerSlideWidth, setCenterSlideWidth] = useState();
   const swiperRef = React.useRef(null);
   const skillImages = [
@@ -44,11 +47,11 @@ export default function Home() {
     { name: "stackoverflow", img: stackoverflow },
   ];
 
-  useEffect(() => {
-    fetch(`${process.env.PUBLIC_URL}/data/data.json`)
-      .then((data) => data.json())
-      .then((data) => setProjects(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch(`${process.env.PUBLIC_URL}/data/data.json`)
+  //     .then((data) => data.json())
+  //     .then((data) => setProjects(data));
+  // }, []);
 
   // useEffect(() => {
   //   let url = window.location.href.split("/");
@@ -273,7 +276,12 @@ export default function Home() {
                     >
                       <div className="wrapper">
                         <div className="thumbnail z-10 relative">
-                          <img src={project.thumbnailBanner} />
+                          <img
+                            src={
+                              require("../images/" + project.thumbnailBanner)
+                                .default
+                            }
+                          />
                         </div>
                       </div>
                     </div>
