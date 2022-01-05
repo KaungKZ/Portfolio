@@ -45,7 +45,7 @@ export default function Home() {
   ];
 
   useEffect(() => {
-    fetch("data/data.json")
+    fetch(`${process.env.PUBLIC_URL}/data/data.json`)
       .then((data) => data.json())
       .then((data) => setProjects(data));
   }, []);
