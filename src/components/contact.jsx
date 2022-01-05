@@ -9,6 +9,10 @@ import { useFormik } from "formik";
 import emailjs, { send } from "emailjs-com";
 
 export default function Contact() {
+  const [formSuccess, setFormSuccess] = useState({
+    loading: false,
+    success: null,
+  });
   // Synchronous validation
   const validate = (
     values,
@@ -43,6 +47,10 @@ export default function Contact() {
     },
     validate,
     onSubmit: (values) => {
+      setFormSuccess({
+        ...formSuccess,
+        loading: true,
+      });
       // console.log(values);
       emailjs
         .send(
@@ -55,13 +63,27 @@ export default function Contact() {
           (result) => {
             console.log(result);
             if (result.status === 200) {
+              setFormSuccess({
+                success: true,
+                loading: false,
+              });
+            } else {
+              setFormSuccess({
+                success: false,
+                loading: false,
+              });
             }
             // console.log(result.text);
           },
           (error) => {
             console.log(error.text);
+            setFormSuccess({
+              success: false,
+              loading: false,
+            });
           }
-        );
+        )
+        .finally(() => formik.resetForm());
       // alert(JSON.stringify(values, null, 2));
     },
   });
@@ -162,6 +184,7 @@ export default function Contact() {
                       name="name"
                       type="text"
                       required
+                      disabled={formik.isSubmitting}
                       onChange={formik.handleChange}
                       value={formik.values.name}
                     />
@@ -203,6 +226,7 @@ export default function Contact() {
                       id="email"
                       placeholder="Enter your email"
                       name="email"
+                      disabled={formik.isSubmitting}
                       type="text"
                       required
                       onChange={formik.handleChange}
@@ -237,6 +261,7 @@ export default function Contact() {
                       id="message"
                       name="message"
                       required
+                      disabled={formik.isSubmitting}
                       value={formik.values.message}
                     />
                     <svg
@@ -261,10 +286,25 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="border-0 px-20 py-2 text-xl text-text-white contact__submit font-semibold"
+                  className="border-0 px-20 py-2 text-xl text-text-white contact__submit font-semibold h-[44px]"
+                  disabled={formik.isSubmitting}
                 >
-                  Send
+                  {formSuccess.loading ? (
+                    <div class="dot-typing"></div>
+                  ) : (
+                    <>Send</>
+                  )}
+                  {/* Send */}
                 </button>
+                {formSuccess.success === true ? (
+                  <span className="text-text-white">
+                    Your message has been sent successfully !
+                  </span>
+                ) : formSuccess.success === false ? (
+                  <span className="text-text-white">
+                    There was an error while sending the message
+                  </span>
+                ) : null}
               </form>
             </div>
           </div>
