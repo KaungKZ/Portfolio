@@ -314,6 +314,18 @@
   .projects {
     padding-bottom: 11rem;
 
+    .swiper-slide {
+      &.swiper-slide-active {
+        .projects__summary {
+          opacity: 1;
+        }
+
+        .projects__slide .thumbnail {
+          transform: translateY(82px);
+        }
+      }
+    }
+
     &__bg {
       bottom: -145px;
     }
@@ -365,4 +377,24 @@
       width: 80px;
     }
   }
+
+  .about {
+    &__exp h1,
+    &__projects h1 {
+      font-size: 5.5rem;
+    }
+  }
+  .contact {
+    &__content {
+      .left,
+      .right {
+        .content-title {
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
 }

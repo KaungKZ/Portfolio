@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import twitter from "../images/twitter.svg";
 import linkedin from "../images/linkedin.svg";
 import github from "../images/github.svg";
@@ -43,7 +43,7 @@ export default function Contact() {
     },
     validate,
     onSubmit: (values) => {
-      console.log(values);
+      // console.log(values);
       emailjs
         .send(
           process.env.REACT_APP_email_service_id,
@@ -53,7 +53,10 @@ export default function Contact() {
         )
         .then(
           (result) => {
-            console.log(result.text);
+            console.log(result);
+            if (result.status === 200) {
+            }
+            // console.log(result.text);
           },
           (error) => {
             console.log(error.text);

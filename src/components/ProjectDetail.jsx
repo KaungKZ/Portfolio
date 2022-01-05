@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams, useLocation, Navigate } from "react-router-dom";
+import { useLocation, Navigate } from "react-router-dom";
 import Contact from "./Contact";
 import headerBg1 from "../images/header-bg-1.png";
 import headerBg2 from "../images/header-bg-2.png";
@@ -86,23 +86,23 @@ export default function ProjectDetail() {
                     <path
                       d="M9.99984 18.3333C14.6022 18.3333 18.3332 14.6024 18.3332 9.99999C18.3332 5.39762 14.6022 1.66666 9.99984 1.66666C5.39746 1.66666 1.6665 5.39762 1.6665 9.99999C1.6665 14.6024 5.39746 18.3333 9.99984 18.3333Z"
                       stroke="#58D9A5"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                     <path
                       d="M6.66634 9.99999C6.66634 14.6024 8.15873 18.3333 9.99967 18.3333C11.8406 18.3333 13.333 14.6024 13.333 9.99999C13.333 5.39762 11.8406 1.66666 9.99967 1.66666C8.15873 1.66666 6.66634 5.39762 6.66634 9.99999Z"
                       stroke="#58D9A5"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                     <path
                       d="M1.6665 10H18.3332"
                       stroke="#58D9A5"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                   </svg>
                 </a>
@@ -117,9 +117,12 @@ export default function ProjectDetail() {
             <div className="detail__techstack mt-12">
               <h3 className="text-text-white text-xl font-bold">Techstacks</h3>
               <div className="mt-6">
-                {detail.techstacks.map((stack) => {
+                {detail.techstacks.map((stack, i) => {
                   return (
-                    <span className="uppercase text-text-white text-sm py-1 px-4 bg-gray-dark rounded mr-4 last:mr-0">
+                    <span
+                      className="uppercase text-text-white text-sm py-1 px-4 bg-gray-dark rounded mr-4 last:mr-0"
+                      key={i}
+                    >
                       {stack}
                     </span>
                   );
