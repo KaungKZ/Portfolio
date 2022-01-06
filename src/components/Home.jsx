@@ -247,16 +247,23 @@ export default function Home() {
               loop={true}
               className="projects__slider"
               breakpoints={{
-                1280: {
+                1281: {
                   spaceBetween: 90,
                 },
-                1024: {
+                1025: {
                   spaceBetween: 50,
                   slidesPerView: 2.2,
                 },
                 768: {
                   spaceBetween: 50,
                   slidesPerView: 1.6,
+                },
+                601: {
+                  spaceBetween: 50,
+                  slidesPerView: 1.3,
+                },
+                321: {
+                  slidesPerView: 1.1,
                 },
               }}
             >

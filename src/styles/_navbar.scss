@@ -38,3 +38,33 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .navbar {
+    ul {
+      .download-resume {
+        width: 225px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    height: auto;
+    margin-top: 28px;
+    &__logo-link {
+      img:first-child,
+      img:last-child {
+        display: none;
+      }
+    }
+    ul {
+      flex-direction: column-reverse;
+
+      li:first-child {
+        margin-top: 2rem;
+      }
+    }
+  }
+}

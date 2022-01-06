@@ -215,11 +215,13 @@
     }
   }
 
-  // @media (max-width: 768px) {
-  //   .section-title {
-  //     margin-bottom: 3.5rem;
-  //   }
-  // }
+  @media (max-width: 600px) {
+    .section-title {
+      h4 {
+        font-size: 1.15rem;
+      }
+    }
+  }
 }
 
 body,
@@ -242,3 +244,5 @@ body {
     max-width: 85%;
   }
 }
+
+// @media (max-width)

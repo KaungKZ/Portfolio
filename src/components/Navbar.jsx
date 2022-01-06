@@ -9,7 +9,10 @@ export default function Navbar() {
       <nav className=" w-full">
         <ul className="flex justify-between items-center">
           <li>
-            <Link to="/" className="text-primary-default flex flex-col">
+            <Link
+              to="/"
+              className="text-primary-default flex flex-col navbar__logo-link"
+            >
               <img src={logo} alt="logo" className="navbar__logo opacity-50" />
               <img src={logo} alt="logo" className="navbar__logo mt-1 mb-1" />
               <img src={logo} alt="logo" className="navbar__logo opacity-50" />
@@ -20,7 +23,7 @@ export default function Navbar() {
               to={MyPDF}
               target="_blank"
               download="Resume.pdf"
-              className="border-button text-primary-default w-[250px]"
+              className="download-resume border-button text-primary-default w-[250px]"
             >
               Download Resume
               <svg>
