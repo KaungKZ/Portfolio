@@ -150,7 +150,7 @@ export default function Contact() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    KaungKZ
+                    /KaungKZ
                   </a>
                 </div>
               </div>
@@ -166,7 +166,7 @@ export default function Contact() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    KaungKZ
+                    /KaungKZ
                   </a>
                 </div>
               </div>
@@ -196,7 +196,7 @@ export default function Contact() {
               <form onSubmit={formik.handleSubmit} noValidate>
                 <div className="name input-field">
                   {formik.errors.name === "Required" && (
-                    <div className="text-primary-default font-sm mb-2">
+                    <div className="text-primary-default font-sm mb-2 error-input-field">
                       This field cannot be empty
                     </div>
                   )}
@@ -236,11 +236,11 @@ export default function Contact() {
                 </div>
                 <div className="email input-field">
                   {formik.errors.email === "Required" ? (
-                    <div className="text-primary-default font-sm mb-2">
+                    <div className="text-primary-default font-sm mb-2 error-input-field">
                       This field cannot be empty
                     </div>
                   ) : formik.errors.email === "Invalid email address" ? (
-                    <div className="text-primary-default font-sm mb-2">
+                    <div className="text-primary-default font-sm mb-2 error-input-field">
                       Please enter valid email address
                     </div>
                   ) : null}
@@ -273,7 +273,7 @@ export default function Contact() {
 
                 <div className="message input-field">
                   {formik.errors.message === "Required" && (
-                    <div className="text-primary-default font-sm mb-2">
+                    <div className="text-primary-default font-sm mb-2 error-input-field">
                       This field cannot be empty
                     </div>
                   )}

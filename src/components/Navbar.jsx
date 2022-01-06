@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
-import MyPDF from "../assets/resumev7.pdf";
+// import MyPDF from "../assets/resumev7.pdf";
 
 export default function Navbar() {
   return (
@@ -20,7 +20,7 @@ export default function Navbar() {
           </li>
           <li>
             <Link
-              to={MyPDF}
+              to="/resumev7.pdf"
               target="_blank"
               download="Resume.pdf"
               className="download-resume border-button text-primary-default w-[250px]"

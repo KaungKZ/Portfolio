@@ -56,7 +56,7 @@ export default function Home() {
   return (
     <>
       <header className="header pt-28 pb-48">
-        <div className="header__container w-10/12 section-fixed-width relative">
+        <div className="header__container section-fixed-width relative">
           <img src={waves} alt="header-wave" className="header__wave wave-1 " />
           <Parallax x={["200px", "-100px"]} tagOuter="div">
             <img src={headerBg1} alt="" className="absolute header__bg bg-1" />
@@ -262,7 +262,11 @@ export default function Home() {
                   spaceBetween: 50,
                   slidesPerView: 1.3,
                 },
-                321: {
+
+                361: {
+                  slidesPerView: 1.1,
+                },
+                1: {
                   slidesPerView: 1.1,
                 },
               }}
