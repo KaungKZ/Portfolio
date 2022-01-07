@@ -447,6 +447,9 @@
     .skill-photo {
       width: 80px;
     }
+    &__container {
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    }
   }
 
   .about {
@@ -662,6 +665,8 @@
       width: 65px;
     }
     &__container {
+      grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
+
       grid-column-gap: 130px;
       column-gap: 130px;
     }
@@ -867,6 +872,7 @@
     }
 
     &__container {
+      grid-template-columns: repeat(auto-fit, minmax(55px, 1fr));
       grid-column-gap: 75px;
       column-gap: 75px;
     }

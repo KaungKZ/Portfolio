@@ -1,53 +1,80 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useLocation, Navigate } from "react-router-dom";
 import Contact from "./Contact";
 import headerBg1 from "../assets/images/header-bg-1.png";
 import headerBg2 from "../assets/images/header-bg-2.png";
+
+function useWindowSize() {
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+  return size;
+}
+
 // import { useEffect } from "react";
 
 export default function ProjectDetail() {
+  const [width, height] = useWindowSize();
+  // const [description, setDescription] = useState();
+
+  // console.log(width);
   // let params = useParams();
   const location = useLocation();
+
+  // useEffect(() => {
+  //   setDescription(detail.description);
+  // }, []);
 
   useEffect(() => {
     // Scroll top when location changes
     window.scrollTo(0, 0);
   }, [location]);
 
+  // useEffect(() => {
+  //   if (width <= 768) {
+  //     setDescription(detail.description.substring(0, 600).concat(" .."));
+  //   }
+  // }, [width]);
+
   if (!location.state) {
     return <Navigate to="/" replace />;
   }
 
+  const { detail } = location.state;
   // useEffect(() => {
   //   console.log("nah");
   // }, []);
 
-  const { detail } = location.state;
-
   return (
     <>
-      <section className="detail mt-16 mb-32">
-        <div className="detail__wrapper section-fixed-width">
-          <div className="detail__banner relative -ml-8">
-            <img src={headerBg1} alt="" className="absolute detail__bg bg-1" />
+      <section className="pdetail mt-16 mb-32">
+        <div className="pdetail__wrapper section-fixed-width">
+          <div className="pdetail__banner relative -ml-8">
+            <img src={headerBg1} alt="" className="absolute pdetail__bg bg-1" />
             <img
               src={require("../assets/images/" + detail.mainBanner).default}
               alt={detail.name}
               width="940"
               className="mx-auto"
             />
-            <img src={headerBg2} alt="" className="absolute detail__bg bg-2" />
+            <img src={headerBg2} alt="" className="absolute pdetail__bg bg-2" />
           </div>
-          <div className="detail__content mt-12">
-            <div className="detail__name flex items-end">
+          <div className="pdetail__content mt-12">
+            <div className="pdetail__name flex items-end">
               <h1 className="text-text-white text-5xl font-title font-bold mr-4">
                 {detail.name}
+                <div className="text-text-white text-sm py-1 px-6 bg-gray-dark rounded font-semibold ml-6 inline">
+                  {detail.finishedDate}
+                </div>
               </h1>
-              <span className="text-text-white text-sm py-1 px-6 bg-gray-dark rounded font-semibold">
-                {detail.finishedDate}
-              </span>
             </div>
-            <div className="detail__view mt-12">
+            <div className="pdetail__view mt-12">
               <div className=" group inline-flex arrow-button mr-12">
                 <a
                   href={detail.githubURL}
@@ -112,15 +139,15 @@ export default function ProjectDetail() {
                 </a>
               </div>
             </div>
-            <div className="detail__descriptionm mt-12">
+            <div className="pdetail__description mt-12">
               <p
                 className="text-[#F3F4F6] text-lg leading-loose"
                 dangerouslySetInnerHTML={{ __html: detail["description"] }}
               ></p>
             </div>
-            <div className="detail__techstack mt-12">
+            <div className="pdetail__techstack mt-12">
               <h3 className="text-text-white text-xl font-bold">Techstacks</h3>
-              <div className="mt-6">
+              <div className="">
                 {detail.techstacks.map((stack, i) => {
                   return (
                     <span

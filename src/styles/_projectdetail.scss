@@ -1,4 +1,4 @@
-.detail {
+.pdetail {
   &__bg {
     z-index: -1;
   }
@@ -10,4 +10,96 @@
     right: -94px;
     bottom: -65px;
   }
+
+  &__techstack {
+    span {
+      display: inline-flex;
+      margin-top: 1rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .pdetail {
+    &__description {
+      p {
+        font-size: 1.1rem;
+        line-height: 1.75;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .pdetail {
+    margin-bottom: 6rem;
+    margin-top: 3rem;
+    &__name {
+      justify-content: center;
+      text-align: center;
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    &__bg {
+      display: none;
+    }
+
+    &__view {
+      div:first-child {
+        margin-right: 2rem;
+      }
+      a {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .pdetail {
+    &__banner {
+      margin-left: 0px;
+    }
+    &__view {
+      flex-direction: column;
+      display: flex;
+
+      div:first-child {
+        margin-right: 0px;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    &__name {
+      div {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .pdetail {
+    &__name {
+      h1 {
+        font-size: 2.25rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .pdetail {
+    &__view {
+      a svg {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
 }
