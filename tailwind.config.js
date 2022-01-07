@@ -1,8 +1,4 @@
-// const defaultTheme = require("tailwindcss/defaultTheme");
-const colors = require("tailwindcss/colors");
-
 module.exports = {
-  mode: "jit",
   purge: {
     content: [
       "./src/**/*.{js,jsx,ts,tsx}",
@@ -16,13 +12,11 @@ module.exports = {
       "after:bg-[#BBA038]",
     ],
   },
-  darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
       sans: ["IBM-Plex-Sans", "sans-serif"],
       title: ["IBM-Plex-Mono", "sans-serif"],
     },
-
     colors: {},
     extend: {
       fontSize: {

@@ -64,8 +64,16 @@ export default function Home() {
           <h1 className="text-9xl text-primary-default font-bold font-default">
             I&#8217;m Kaung.
           </h1>
-          <h3 className="text-2.5xl text-text-white mt-8 mb-12 leading-relaxed max-w-[700px] font-default">
-            Based in Myanmar, I’m Frontend developer and I make cool websites.
+          <h3 className="text-2.5xl text-text-white mt-8 mb-12 leading-relaxed max-w-[700px] font-default ">
+            Based in{" "}
+            <a
+              className="underline decoration-wavy decoration-primary-default"
+              href="https://goo.gl/maps/QoUXopz3jCQNFYBo8"
+              target="_blank"
+            >
+              Myanmar
+            </a>
+            , I’m Frontend developer and I make cool websites.
           </h3>
           <div className="header__contact group inline-flex arrow-button">
             <a
@@ -281,10 +289,8 @@ export default function Home() {
                       <div className="wrapper">
                         <div className="thumbnail z-10 relative">
                           <img
-                            src={
-                              require("../assets/images/" +
-                                project.thumbnailBanner).default
-                            }
+                            src={require("../assets/images/" +
+                              project.thumbnailBanner)}
                           />
                         </div>
                       </div>

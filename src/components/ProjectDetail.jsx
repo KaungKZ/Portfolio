@@ -58,7 +58,7 @@ export default function ProjectDetail() {
           <div className="pdetail__banner relative -ml-8">
             <img src={headerBg1} alt="" className="absolute pdetail__bg bg-1" />
             <img
-              src={require("../assets/images/" + detail.mainBanner).default}
+              src={require("../assets/images/" + detail.mainBanner)}
               alt={detail.name}
               width="940"
               className="mx-auto"
