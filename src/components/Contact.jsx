@@ -73,7 +73,7 @@ export default function Contact() {
                   ...formSuccess,
                   success: null,
                 });
-              }, 3000);
+              }, 5000);
             } else {
               setFormSuccess({
                 success: false,
@@ -85,7 +85,7 @@ export default function Contact() {
                   ...formSuccess,
                   success: null,
                 });
-              }, 7000);
+              }, 20000);
             }
             // console.log(result.text);
           },
@@ -101,7 +101,7 @@ export default function Contact() {
                 ...formSuccess,
                 success: null,
               });
-            }, 7000);
+            }, 20000);
           }
         )
         .finally(() => {

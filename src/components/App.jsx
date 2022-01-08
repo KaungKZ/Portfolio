@@ -7,7 +7,6 @@ import NotFoundPage from "./NotFoundPage";
 import { ParallaxProvider } from "react-scroll-parallax";
 
 export default function App() {
-  console.log("testing");
   return (
     <>
       <ParallaxProvider>

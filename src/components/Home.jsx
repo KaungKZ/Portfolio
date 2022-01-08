@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import waves from "../assets/images/waves.svg";
 import aboutBg from "../assets/images/about-bg.png";
 import skillsBg1 from "../assets/images/skills-bg-1.png";
@@ -26,10 +26,24 @@ import headerBg2 from "../assets/images/header-bg-2.png";
 import Contact from "./Contact";
 import { data } from "../data/data";
 import { Parallax } from "react-scroll-parallax";
+import { useInView } from "react-intersection-observer";
 // SwiperCore.use([Navigation]);
 
 export default function Home() {
   // const loadData = () => JSON.parse(JSON.stringify(jsonData));
+  // const ref = useRef();
+  const [headerRef, headerInview] = useInView({
+    //   /* Optional options */
+    threshold: 0,
+  });
+  const [aboutRef, aboutInview] = useInView({
+    //   /* Optional options */
+    threshold: 0,
+  });
+  // const { ref, inView, entry } = useInView({
+  //   /* Optional options */
+  //   threshold: 0,
+  // });
   const [projects] = useState(data);
 
   // console.log(data);
@@ -47,6 +61,22 @@ export default function Home() {
     { name: "stackoverflow", img: stackoverflow },
   ];
 
+  // console.log(inView);
+
+  // Use `useCallback` so we don't recreate the function on each render - Could result in infinite loop
+  // const setRefs = useCallback(
+  //   (node) => {
+
+  //     // ref.current = node;
+  //     // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
+  //     headerRef(node);
+  //     aboutRef(node);
+  //   },
+  //   [headerRef, aboutRef]
+  // );
+
+  // console.log(headerInview, aboutInview);
+
   // useEffect(() => {
   //   fetch(`${process.env.PUBLIC_URL}/data/data.json`)
   //     .then((data) => data.json())
@@ -55,7 +85,10 @@ export default function Home() {
 
   return (
     <>
-      <header className="header pt-28 pb-48">
+      <header
+        className={`header pt-28 pb-48 ${headerInview ? "inview" : ""}`}
+        ref={headerRef}
+      >
         <div className="header__container section-fixed-width relative">
           <img src={waves} alt="header-wave" className="header__wave wave-1 " />
           <Parallax x={["200px", "-100px"]} tagOuter="div">
@@ -112,7 +145,12 @@ export default function Home() {
           <img src={waves} alt="header-wave" className="header__wave wave-2" />
         </div>
       </header>
-      <section className="about mt-12 bg-gray-darker mb-40">
+      <section
+        className={`about mt-12 bg-gray-darker mb-40 ${
+          aboutInview ? "inview" : ""
+        }`}
+        ref={aboutRef}
+      >
         <div className="line-wrapper section-fixed-width relative py-20">
           <div className="section-title">
             <h4>A little bit about me</h4>
@@ -279,7 +317,7 @@ export default function Home() {
                 },
               }}
             >
-              {projects.map((project) => {
+              {projects.map((project, i) => {
                 // console.log(project.thumbnailBanner);
                 return (
                   <SwiperSlide key={project.id}>
@@ -301,7 +339,16 @@ export default function Home() {
                       </h1> */}
                       <Link
                         to={`/projects/${project.slug}`}
-                        state={{ detail: project }}
+                        state={{
+                          prevProject:
+                            i === 0
+                              ? projects[projects.length - 1].slug
+                              : projects[i - 1].slug,
+                          nextProject:
+                            i === projects.length - 1
+                              ? projects[0].slug
+                              : projects[i].slug,
+                        }}
                         className="border-button-large text-text-white"
                       >
                         Check out this project

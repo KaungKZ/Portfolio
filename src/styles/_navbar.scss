@@ -52,7 +52,7 @@
 @media (max-width: 480px) {
   .navbar {
     height: auto;
-    margin-top: 28px;
+    margin-top: 24px;
     &__logo-link {
       img:first-child,
       img:last-child {
@@ -63,7 +63,7 @@
       flex-direction: column-reverse;
 
       li:first-child {
-        margin-top: 2rem;
+        margin-top: 1.5rem;
       }
       .download-resume {
         width: 200px;
