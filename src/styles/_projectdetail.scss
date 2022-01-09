@@ -19,6 +19,18 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .pagination {
+    .prev {
+      margin-right: 3rem;
+    }
+    a {
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .pdetail {
     &__description {
@@ -28,11 +40,20 @@
       }
     }
   }
+
+  .pagination {
+    a {
+      svg {
+        width: 1.55rem;
+        height: 1.55rem;
+      }
+    }
+  }
 }
 
 @media (max-width: 600px) {
   .pdetail {
-    margin-bottom: 6rem;
+    // margin-bottom: 6rem;
     margin-top: 3rem;
     &__name {
       justify-content: center;
@@ -76,6 +97,20 @@
       div {
         display: none;
       }
+    }
+  }
+
+  .pagination {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    &__wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .prev {
+      margin-right: 0px;
+      margin-bottom: 1.75rem;
     }
   }
 }

@@ -44,6 +44,8 @@ export default function Home() {
   //   /* Optional options */
   //   threshold: 0,
   // });
+
+  console.log("rendered");
   const [projects] = useState(data);
 
   // console.log(data);
@@ -337,6 +339,11 @@ export default function Home() {
                       {/* <h1 className="text-text-white font-title text-4xl font-bold">
                         {project.name}
                       </h1> */}
+                      {console.log(
+                        i === 0
+                          ? projects[projects.length - 1].slug
+                          : projects[i - 1].slug
+                      )}
                       <Link
                         to={`/projects/${project.slug}`}
                         state={{

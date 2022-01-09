@@ -4,19 +4,20 @@ import Contact from "./Contact";
 import headerBg1 from "../assets/images/header-bg-1.png";
 import headerBg2 from "../assets/images/header-bg-2.png";
 import { data } from "../data/data";
+import { Link } from "react-router-dom";
 
-function useWindowSize() {
-  const [size, setSize] = useState([0, 0]);
-  useLayoutEffect(() => {
-    function updateSize() {
-      setSize([window.innerWidth, window.innerHeight]);
-    }
-    window.addEventListener("resize", updateSize);
-    updateSize();
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
-  return size;
-}
+// function useWindowSize() {
+//   const [size, setSize] = useState([0, 0]);
+//   useLayoutEffect(() => {
+//     function updateSize() {
+//       setSize([window.innerWidth, window.innerHeight]);
+//     }
+//     window.addEventListener("resize", updateSize);
+//     updateSize();
+//     return () => window.removeEventListener("resize", updateSize);
+//   }, []);
+//   return size;
+// }
 
 // import { useEffect } from "react";
 
@@ -26,6 +27,7 @@ export default function ProjectDetail() {
   const params = useParams();
   const [detail, setDetail] = useState();
   const [pagination, setPagination] = useState();
+  const currentIndex = detail && data.findIndex((d) => d.id === detail.id);
 
   // console.log(params.name);
   // const [description, setDescription] = useState();
@@ -50,6 +52,8 @@ export default function ProjectDetail() {
     setDetail(data.find((d) => d.slug === params.name));
   }, [params.name]);
 
+  // console.log(detail);
+
   // useEffect(() => {
   //   if (width <= 768) {
   //     setDescription(detail.description.substring(0, 600).concat(" .."));
@@ -57,15 +61,23 @@ export default function ProjectDetail() {
   // }, [width]);
 
   useEffect(() => {
-    if (!location.state) {
-      setPagination("empty");
-    } else {
+    if (detail) {
+      // console.log("yes");
+      // console.log(data[data.findIndex((d) => d.id === detail.id)]);
       setPagination({
-        prevProject: location.state.prevProject,
-        nextProject: location.state.prevProject,
+        prevProject:
+          currentIndex === 0
+            ? data[data.length - 1].slug
+            : data[data.findIndex((d) => d.id === detail.id) - 1].slug,
+        nextProject:
+          currentIndex === data.length - 1
+            ? data[0].slug
+            : data[data.findIndex((d) => d.id === detail.id) + 1].slug,
       });
     }
-  }, [location.state]);
+  }, [detail]);
+
+  console.log(pagination);
 
   // console.log(pagination);
 
@@ -79,7 +91,7 @@ export default function ProjectDetail() {
   return (
     <>
       {detail && (
-        <section className="pdetail mt-16 mb-32">
+        <section className="pdetail mt-16 mb-8">
           <div className="pdetail__wrapper section-fixed-width">
             <div className="pdetail__banner relative -ml-8">
               <img
@@ -202,14 +214,56 @@ export default function ProjectDetail() {
         </section>
       )}
 
-      {/* <div className="pagination">
-        <div className="pagination__wrapper section-fixed-width">
-          <div className="prev">
-            <a href="#">Check out Previos Project</a>
+      {pagination && (
+        <div className="pagination py-12">
+          <div className="pagination__wrapper section-fixed-width flex justify-center">
+            <div className="prev mr-20">
+              <Link
+                to={`/projects/${pagination.prevProject}`}
+                className="text-primary-default flex flex-row-reverse items-center text-xl font-title"
+              >
+                Previos Project{" "}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-7 w-7 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="#4BB188"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M7 16l-4-4m0 0l4-4m-4 4h18"
+                  />
+                </svg>
+              </Link>
+            </div>
+            <div className="next">
+              <Link
+                to={`/projects/${pagination.nextProject}`}
+                className="text-primary-default flex items-center text-xl font-title"
+              >
+                Next Project{" "}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-7 w-7 ml-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="#4BB188"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </Link>
+            </div>
           </div>
-          <div className="next"></div>
         </div>
-      </div> */}
+      )}
 
       <Contact></Contact>
     </>
