@@ -89,7 +89,7 @@ export default function ProjectDetail() {
   // }, []);
 
   return (
-    <>
+    <main>
       {detail && (
         <section className="pdetail mt-16 mb-8">
           <div className="pdetail__wrapper section-fixed-width">
@@ -266,6 +266,6 @@ export default function ProjectDetail() {
       )}
 
       <Contact></Contact>
-    </>
+    </main>
   );
 }

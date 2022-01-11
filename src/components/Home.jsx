@@ -86,7 +86,7 @@ export default function Home() {
   // }, []);
 
   return (
-    <>
+    <main>
       <header
         className={`header pt-28 pb-48 ${headerInview ? "inview" : ""}`}
         ref={headerRef}
@@ -452,6 +452,6 @@ export default function Home() {
         </div>
       </section>
       <Contact></Contact>
-    </>
+    </main>
   );
 }
