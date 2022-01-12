@@ -269,32 +269,58 @@ body {
   margin-right: auto;
 }
 
+// .page {
+//   position: absolute;
+//   left: 15px;
+//   right: 15px;
+// }
+
 .fade-enter {
   opacity: 0;
-  transform: translate(0, 25px);
-  z-index: 1;
+  transform: scale(1.1);
 }
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  transform: translate(0, 0);
 
-  transition: opacity 250ms ease-out, transform 300ms ease;
+.fade-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 350ms, transform 350ms;
 }
+
 .fade-exit {
   opacity: 1;
-  transform: translate(0, 0);
+  transform: scale(1);
 }
-.fade-exit.fade-exit-active {
-  opacity: 0;
-  transform: translate(0, 30px);
 
-  transition: opacity 250ms ease-out, transform 300ms ease;
+.fade-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 350ms, transform 350ms;
 }
+
+// .fade-enter {
+//   opacity: 0;
+//   transform: translate(0, 25px);
+//   z-index: 1;
+// }
+// .fade-enter.fade-enter-active {
+//   opacity: 1;
+//   transform: translate(0, 0);
+
+//   transition: opacity 250ms ease-out, transform 300ms ease;
+// }
+// .fade-exit {
+//   opacity: 1;
+//   transform: translate(0, 0);
+// }
+// .fade-exit.fade-exit-active {
+//   opacity: 0;
+//   transform: translate(0, 30px);
+
+//   transition: opacity 250ms ease-out, transform 300ms ease;
+// }
 
 main {
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
+  // overflow-x: hidden;
   position: absolute;
   top: 144px;
   bottom: 0;
@@ -305,6 +331,13 @@ main {
 @media (max-width: 1360px) {
   .section-fixed-width {
     max-width: 85%;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    position: absolute;
+    top: 127px;
   }
 }
 
