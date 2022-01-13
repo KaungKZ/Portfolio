@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import "typography";
+@import "common";
 @import "home";
 @import "common";
 @import "projectdetail";
@@ -37,9 +38,12 @@
       right: calc(0px - 60px);
       top: 50%;
       width: 50px;
+      transition: transform 1200ms ease;
+
       height: 2px;
       background: var(--primary-default);
-      transform: translateY(50%);
+      transform: translateY(50%) scaleX(0);
+      transform-origin: left;
     }
   }
 

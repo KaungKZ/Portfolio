@@ -4,11 +4,17 @@ import linkedin from "../assets/images/linkedin.svg";
 import github from "../assets/images/github.svg";
 import whatsapp from "../assets/images/whatsapp.svg";
 import contactBg from "../assets/images/contact-bg.png";
+import { useInView } from "react-intersection-observer";
 
 import { useFormik } from "formik";
 import emailjs from "emailjs-com";
 
 export default function Contact() {
+  const [contactRef, contactInview] = useInView({
+    //   /* Optional options */
+    threshold: [0.3],
+    triggerOnce: true,
+  });
   const [formSuccess, setFormSuccess] = useState({
     loading: false,
     success: null,
@@ -110,8 +116,13 @@ export default function Contact() {
       // alert(JSON.stringify(values, null, 2));
     },
   });
+  console.log("rendered contact");
   return (
-    <section className="contact mt-12" id="contact">
+    <section
+      className={`contact mt-12 ${contactInview ? "inview" : ""}`}
+      id="contact"
+      ref={contactRef}
+    >
       <div className="contact__wrapper section-fixed-width relative">
         <div className="section-title">
           <h4>Let’s make something special</h4>

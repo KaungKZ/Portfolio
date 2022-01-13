@@ -1,0 +1,8 @@
+@mixin opacity-transition-out {
+  opacity: 0;
+  transition: opacity 800ms ease;
+}
+
+@mixin opacity-transition-in {
+  opacity: 1;
+}

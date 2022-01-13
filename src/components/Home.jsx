@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useCallback } from "react";
 import waves from "../assets/images/waves.svg";
 import aboutBg from "../assets/images/about-bg.png";
 import skillsBg1 from "../assets/images/skills-bg-1.png";
@@ -35,17 +35,25 @@ export default function Home() {
   const [headerRef, headerInview] = useInView({
     //   /* Optional options */
     threshold: 0,
+    triggerOnce: true,
   });
   const [aboutRef, aboutInview] = useInView({
     //   /* Optional options */
-    threshold: 0,
+    threshold: [0.3],
+    triggerOnce: true,
   });
-  // const { ref, inView, entry } = useInView({
-  //   /* Optional options */
-  //   threshold: 0,
-  // });
+  const [skillsRef, skillsInview] = useInView({
+    //   /* Optional options */
+    threshold: [0.3],
+    triggerOnce: true,
+  });
+  const [projectsRef, projectsInview] = useInView({
+    //   /* Optional options */
+    threshold: [0.3],
+    triggerOnce: true,
+  });
 
-  console.log("rendered");
+  // console.log("rendered");
   const [projects] = useState(data);
 
   // console.log(data);
@@ -65,16 +73,14 @@ export default function Home() {
 
   // console.log(inView);
 
-  // Use `useCallback` so we don't recreate the function on each render - Could result in infinite loop
   // const setRefs = useCallback(
   //   (node) => {
-
-  //     // ref.current = node;
+  //     // Ref's from useRef needs to have the node assigned to `current`
+  //     ref.current = node;
   //     // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
-  //     headerRef(node);
-  //     aboutRef(node);
+  //     inViewRef(node);
   //   },
-  //   [headerRef, aboutRef]
+  //   [inViewRef]
   // );
 
   // console.log(headerInview, aboutInview);
@@ -84,6 +90,8 @@ export default function Home() {
   //     .then((data) => data.json())
   //     .then((data) => setProjects(data));
   // }, []);
+
+  console.log("rendered home");
 
   return (
     <main>
@@ -230,7 +238,10 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="skills pb-56">
+      <section
+        className={`skills pb-56 ${skillsInview ? "inview" : ""}`}
+        ref={skillsRef}
+      >
         <div className="skills__wrapper section-fixed-width relative">
           <div className="section-title">
             <h4>I'm good at these</h4>
@@ -274,7 +285,10 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="projects pb-52">
+      <section
+        className={`projects pb-52 ${projectsInview ? "inview" : ""}`}
+        ref={projectsRef}
+      >
         <div className="projects__wrapper relative">
           <div className="title-wrapper section-fixed-width">
             <div className="section-title">
@@ -336,14 +350,6 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="projects__summary opacity-0 absolute top-0 left-0 w-full h-28 flex flex-col justify-center items-center z-10">
-                      {/* <h1 className="text-text-white font-title text-4xl font-bold">
-                        {project.name}
-                      </h1> */}
-                      {console.log(
-                        i === 0
-                          ? projects[projects.length - 1].slug
-                          : projects[i - 1].slug
-                      )}
                       <Link
                         to={`/projects/${project.slug}`}
                         state={{
