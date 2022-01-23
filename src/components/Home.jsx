@@ -39,17 +39,17 @@ export default function Home() {
   });
   const [aboutRef, aboutInview] = useInView({
     //   /* Optional options */
-    threshold: [0.3],
+    threshold: [0.35],
     triggerOnce: true,
   });
   const [skillsRef, skillsInview] = useInView({
     //   /* Optional options */
-    threshold: [0.3],
+    threshold: [0.35],
     triggerOnce: true,
   });
   const [projectsRef, projectsInview] = useInView({
     //   /* Optional options */
-    threshold: [0.3],
+    threshold: [0.35],
     triggerOnce: true,
   });
 

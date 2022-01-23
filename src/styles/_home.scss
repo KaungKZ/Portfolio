@@ -131,6 +131,7 @@
 
   .skill {
     width: fit-content;
+    @include opacity-transition-out;
     &:before {
       content: attr(data-label);
       position: absolute;
@@ -169,6 +170,9 @@
 
   &.inview {
     .skills__wrapper {
+      .skills__container .skill {
+        @include opacity-transition-in;
+      }
       .section-title {
         &::after {
           transform: translateY(50%) scaleX(1);
