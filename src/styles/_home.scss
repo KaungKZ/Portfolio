@@ -183,7 +183,12 @@
 }
 
 .projects {
+  &__wrapper {
+
+    @include opacity-transition-out;
+  }
   &__slider {
+
     .swiper-wrapper {
       transition-timing-function: ease;
       transition-delay: 200ms;
@@ -297,7 +302,10 @@
   }
 
   &.inview {
+    // .projects__slider {
+    // }
     .projects__wrapper {
+      @include opacity-transition-in;
       .section-title {
         &::after {
           transform: translateY(50%) scaleX(1);
@@ -308,6 +316,10 @@
 }
 
 .contact {
+  &__wrapper {
+    @include opacity-transition-out;
+
+  }
   &__submit {
     // background-image: linear-gradient(
     //   90deg,
@@ -393,7 +405,9 @@
   }
 
   &.inview {
+    
     .contact__wrapper {
+      @include opacity-transition-in;
       .section-title {
         &::after {
           transform: translateY(50%) scaleX(1);

@@ -49,7 +49,7 @@ export default function Home() {
   });
   const [projectsRef, projectsInview] = useInView({
     //   /* Optional options */
-    threshold: [0.35],
+    threshold: [0.25],
     triggerOnce: true,
   });
 
@@ -91,7 +91,7 @@ export default function Home() {
   //     .then((data) => setProjects(data));
   // }, []);
 
-  console.log("rendered home");
+  // console.log("rendered home");
 
   return (
     <main>

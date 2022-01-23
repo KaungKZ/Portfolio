@@ -12,7 +12,7 @@ import emailjs from "emailjs-com";
 export default function Contact() {
   const [contactRef, contactInview] = useInView({
     //   /* Optional options */
-    threshold: [0.35],
+    threshold: [0.25],
     triggerOnce: true,
   });
   const [formSuccess, setFormSuccess] = useState({
