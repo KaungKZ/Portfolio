@@ -299,14 +299,18 @@ export default function Home() {
           <div className="projects__slider-wrapper w-full">
             <Swiper
               ref={swiperRef}
-              spaceBetween={90}
+              spaceBetween={1}
               slidesPerView={2.4}
               centeredSlides="true"
               slidesPerGroup={1}
-              initialSlide={3}
+              // initialSlide={1}
               speed={800}
+              // roundLengths="true"
+              loopAdditionalSlides={30}
+              // loopedSlides={4}
+              // loopAdditionalSlides={100}
               // observer={true}
-              loop={true}
+              loop="true"
               className="projects__slider"
               breakpoints={{
                 1281: {

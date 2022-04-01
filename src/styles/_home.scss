@@ -184,14 +184,12 @@
 
 .projects {
   &__wrapper {
-
     @include opacity-transition-out;
   }
   &__slider {
-
     .swiper-wrapper {
-      transition-timing-function: ease;
-      transition-delay: 200ms;
+      // transition-timing-function: linear;
+      // transition-delay: 200ms;
     }
     .swiper-slide:not(.swiper-slide-active) {
       position: relative;
@@ -204,7 +202,7 @@
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.6);
-        transition: background 200ms ease;
+        // transition: background 200ms ease;
         z-index: 11;
       }
     }
@@ -218,31 +216,16 @@
         width: 100%;
         height: 100%;
         background: transparent;
-        // transition: background 200ms ease;
 
-        transition-delay: 200ms;
+        // transition-delay: 200ms;
         z-index: -1;
       }
     }
     .swiper-slide {
-      // width: 580px;
-      // height: 600px;
-
       &.swiper-slide-active {
-        // cursor: pointer;
-
         .projects__summary {
           transition: all 100ms ease-in;
           transition-delay: 0ms;
-          // &::after {
-          //   content: "";
-          //   position: absolute;
-          //   top: 0;
-          //   left: 0;
-          //   width: 100%;
-          //   height: 100%;
-          //   background: rgba(0, 0, 0, 0.5);
-          // }
         }
 
         &:hover {
@@ -260,8 +243,6 @@
 
       img {
         object-fit: cover;
-        // width: 580px;
-        // height: 600px;
       }
     }
   }
@@ -275,12 +256,11 @@
       top: 0;
       left: 0;
       height: 50%;
-      // background: #000;
+
       width: 100%;
     }
 
     .thumbnail {
-      // box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
       transition: all 400ms ease;
       box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
         rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
@@ -318,7 +298,6 @@
 .contact {
   &__wrapper {
     @include opacity-transition-out;
-
   }
   &__submit {
     // background-image: linear-gradient(
@@ -405,7 +384,6 @@
   }
 
   &.inview {
-    
     .contact__wrapper {
       @include opacity-transition-in;
       .section-title {
