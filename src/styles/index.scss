@@ -323,8 +323,9 @@ body {
 //   transition: opacity 250ms ease-out, transform 300ms ease;
 // }
 
-main {
+.all-content-wrapper {
   // overflow-x: hidden;
+
   position: absolute;
   top: 144px;
   bottom: 0;

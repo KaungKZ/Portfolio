@@ -1,7 +1,6 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
-// import MyPDF from "../assets/resumev7.pdf";
 
 export default function Navbar() {
   return (

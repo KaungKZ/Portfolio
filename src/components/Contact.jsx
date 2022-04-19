@@ -57,7 +57,6 @@ export default function Contact() {
         ...formSuccess,
         loading: true,
       });
-      // console.log(values);
       emailjs
         .send(
           process.env.REACT_APP_email_service_id,
@@ -93,7 +92,6 @@ export default function Contact() {
                 });
               }, 20000);
             }
-            // console.log(result.text);
           },
           (error) => {
             console.log(error.text);
@@ -113,7 +111,6 @@ export default function Contact() {
         .finally(() => {
           formik.resetForm();
         });
-      // alert(JSON.stringify(values, null, 2));
     },
   });
   console.log("rendered contact");

@@ -1,69 +1,29 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
-import { useLocation, Navigate, useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useParams } from "react-router-dom";
 import Contact from "./Contact";
 import headerBg1 from "../assets/images/header-bg-1.png";
 import headerBg2 from "../assets/images/header-bg-2.png";
 import { data } from "../data/data";
 import { Link } from "react-router-dom";
 
-// function useWindowSize() {
-//   const [size, setSize] = useState([0, 0]);
-//   useLayoutEffect(() => {
-//     function updateSize() {
-//       setSize([window.innerWidth, window.innerHeight]);
-//     }
-//     window.addEventListener("resize", updateSize);
-//     updateSize();
-//     return () => window.removeEventListener("resize", updateSize);
-//   }, []);
-//   return size;
-// }
-
-// import { useEffect } from "react";
-
 export default function ProjectDetail() {
-  // const [width, height] = useWindowSize();
-
   const params = useParams();
   const [detail, setDetail] = useState();
   const [pagination, setPagination] = useState();
   const currentIndex = detail && data.findIndex((d) => d.id === detail.id);
 
-  // console.log(params.name);
-  // const [description, setDescription] = useState();
-
-  // console.log(width);
-  // let params = useParams();
   const location = useLocation();
-
-  // useEffect(() => {
-  //   setDescription(detail.description);
-  // }, []);
-
   useEffect(() => {
     // Scroll top when location changes
     window.scrollTo(0, 0);
   }, [location]);
 
-  // console.log(data.find((d) => d.slug === params.name));
-
   useEffect(() => {
-    // console.log(data);
     setDetail(data.find((d) => d.slug === params.name));
   }, [params.name]);
 
-  // console.log(detail);
-
-  // useEffect(() => {
-  //   if (width <= 768) {
-  //     setDescription(detail.description.substring(0, 600).concat(" .."));
-  //   }
-  // }, [width]);
-
   useEffect(() => {
     if (detail) {
-      // console.log("yes");
-      // console.log(data[data.findIndex((d) => d.id === detail.id)]);
       setPagination({
         prevProject:
           currentIndex === 0
@@ -75,21 +35,10 @@ export default function ProjectDetail() {
             : data[data.findIndex((d) => d.id === detail.id) + 1].slug,
       });
     }
-  }, [detail]);
-
-  console.log(pagination);
-
-  // console.log(pagination);
-
-  // const { prevProject, nextProject } = location.state;
-
-  // console.log(prevProject, nextProject);
-  // useEffect(() => {
-  //   console.log("nah");
-  // }, []);
+  }, [detail, currentIndex]);
 
   return (
-    <main>
+    <main className="all-content-wrapper">
       {detail && (
         <section className="pdetail mt-16 mb-8">
           <div className="pdetail__wrapper section-fixed-width">

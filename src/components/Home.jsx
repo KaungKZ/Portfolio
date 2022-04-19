@@ -1,10 +1,9 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import waves from "../assets/images/waves.svg";
 import aboutBg from "../assets/images/about-bg.png";
 import skillsBg1 from "../assets/images/skills-bg-1.png";
 import skillsBg2 from "../assets/images/skills-bg-2.png";
 import projectsBg from "../assets/images/projects-bg.png";
-
 import figma from "../assets/images/skills-figma.png";
 import gatsby from "../assets/images/skills-gatsby.png";
 import git from "../assets/images/skills-git.png";
@@ -18,20 +17,15 @@ import stackoverflowText from "../assets/images/stackoverflow-text.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
-
 import { Link } from "react-router-dom";
 import headerBg1 from "../assets/images/header-bg-1.png";
 import headerBg2 from "../assets/images/header-bg-2.png";
-
 import Contact from "./Contact";
 import { data } from "../data/data";
 import { Parallax } from "react-scroll-parallax";
 import { useInView } from "react-intersection-observer";
-// SwiperCore.use([Navigation]);
 
 export default function Home() {
-  // const loadData = () => JSON.parse(JSON.stringify(jsonData));
-  // const ref = useRef();
   const [headerRef, headerInview] = useInView({
     //   /* Optional options */
     threshold: 0,
@@ -53,11 +47,8 @@ export default function Home() {
     triggerOnce: true,
   });
 
-  // console.log("rendered");
   const [projects] = useState(data);
 
-  // console.log(data);
-  // const [centerSlideWidth, setCenterSlideWidth] = useState();
   const swiperRef = React.useRef(null);
   const skillImages = [
     { name: "react", img: react },
@@ -71,30 +62,8 @@ export default function Home() {
     { name: "stackoverflow", img: stackoverflow },
   ];
 
-  // console.log(inView);
-
-  // const setRefs = useCallback(
-  //   (node) => {
-  //     // Ref's from useRef needs to have the node assigned to `current`
-  //     ref.current = node;
-  //     // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
-  //     inViewRef(node);
-  //   },
-  //   [inViewRef]
-  // );
-
-  // console.log(headerInview, aboutInview);
-
-  // useEffect(() => {
-  //   fetch(`${process.env.PUBLIC_URL}/data/data.json`)
-  //     .then((data) => data.json())
-  //     .then((data) => setProjects(data));
-  // }, []);
-
-  // console.log("rendered home");
-
   return (
-    <main>
+    <main className="all-content-wrapper">
       <header
         className={`header pt-28 pb-48 ${headerInview ? "inview" : ""}`}
         ref={headerRef}
@@ -113,6 +82,7 @@ export default function Home() {
               className="underline decoration-wavy decoration-primary-default"
               href="https://goo.gl/maps/QoUXopz3jCQNFYBo8"
               target="_blank"
+              rel="noreferrer"
             >
               Myanmar
             </a>
@@ -330,15 +300,17 @@ export default function Home() {
                 },
 
                 361: {
+                  spaceBetween: 50,
                   slidesPerView: 1.1,
                 },
-                1: {
+
+                0: {
+                  spaceBetween: 50,
                   slidesPerView: 1.1,
                 },
               }}
             >
               {projects.map((project, i) => {
-                // console.log(project.thumbnailBanner);
                 return (
                   <SwiperSlide key={project.id}>
                     <div
@@ -349,6 +321,7 @@ export default function Home() {
                           <img
                             src={require("../assets/images/" +
                               project.thumbnailBanner)}
+                            alt="project-thubnail"
                           />
                         </div>
                       </div>

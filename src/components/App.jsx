@@ -7,12 +7,6 @@ import NotFoundPage from "./NotFoundPage";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { ParallaxProvider } from "react-scroll-parallax";
 
-const routes = [
-  { path: "/", Component: Home, exact: true },
-  { path: "/projects/:name", Component: ProjectDetail, exact: false },
-  { path: "*", Component: NotFoundPage, exact: false },
-];
-
 export default function App() {
   const location = useLocation();
 
