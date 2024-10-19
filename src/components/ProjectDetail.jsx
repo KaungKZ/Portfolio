@@ -171,7 +171,7 @@ export default function ProjectDetail() {
                 to={`/projects/${pagination.prevProject}`}
                 className="text-primary-default flex flex-row-reverse items-center text-xl font-title"
               >
-                Previos Project{" "}
+                Previous Project{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-7 w-7 mr-2"
