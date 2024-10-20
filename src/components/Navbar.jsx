@@ -19,7 +19,7 @@ export default function Navbar() {
           </li>
           <li>
             <Link
-              to="/resumev7.pdf"
+              to="/resumev9.pdf"
               target="_blank"
               download="Resume.pdf"
               className="download-resume border-button text-primary-default w-[250px]"
