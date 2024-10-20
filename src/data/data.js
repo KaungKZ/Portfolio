@@ -41,7 +41,7 @@ export const data = [
     description:
       "This is the biggest project that I have made since multiple frameworks and technologies are included in this project. This is a front end e commerce project mainly using gatsbyjs along with contentful CMS to store item details. In the website, users can view items, go to their detail page, add / update / remove items in carts and see the receipt after purchasing. Since gastsby provide awesome plugins, some of them are used in this project such as to display loading bar when navigating to another page, putting SEO header tags, blurring images while on load and so on. For retreiving data from contentful, GraghQL queries are used throughout the pages. <br /> <br /> It is not a fully functional e commerce project since the items are not the real data but the main goal of this project is to learn about gatsbyjs and it’s features, making dynamic routes with gatsby, using CMS to store data and making calculations for cart items and draggable sliders. This took around 3months from designing the website to an actual working website, and deployed on gastsby cloud free hosting service for gastsby websites.",
     slug: "emerald",
-    projectURL: "https://emerald.gatsbyjs.io/",
+    projectURL: "https://emeraldos.netlify.app/",
     githubURL: "https://github.com/KaungKZ/Emerald",
     thumbnailBanner: "projects-slide-2.jpg",
     mainBanner: "project-detail-2.png",
