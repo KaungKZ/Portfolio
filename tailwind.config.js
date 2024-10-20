@@ -10,6 +10,7 @@ module.exports = {
       "after:bg-[#6C8E70]",
       "after:bg-[#A99A86]",
       "after:bg-[#BBA038]",
+      "after:bg-[#1E293B]",
     ],
   },
   theme: {

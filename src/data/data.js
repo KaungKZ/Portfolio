@@ -1,8 +1,29 @@
 export const data = [
   {
     id: 1,
+    name: "Dopecase",
+    finishedDate: "2024",
+    description:
+      "This is the fullstack project with the most used tools and libraries available for react and nextjs in 2024. In this website, users can create a custom iPhone case by uploading their photos and proceed to check out using Stripe (not a real payment) to ship the case to their address. Users will be required to sign in using credencials or 0Auth providers with google and github. There is also a hidden admin dashboard feature which allows admin to view all incoming orders and change their status. <br /><br /> Overall UI design and all static icons and images are from JoshTriedCoding youtube tutorial video but the codes, tools, libraries and most of the features are not copy and paste from the original tutorial.",
+    slug: "dopecase",
+    projectURL: "https://dopecase.vercel.app/",
+    githubURL: "https://github.com/KaungKZ/dopecase",
+    thumbnailBanner: "projects-slide-5.jpg",
+    mainBanner: "project-detail-5.png",
+    techstacks: [
+      "reactjs",
+      "nextjs",
+      "tailwind",
+      "nodejs",
+      "prisma",
+      "supabase",
+    ],
+    thumbnailBg: "#1E293B",
+  },
+  {
+    id: 2,
     name: "MyMovies",
-    finishedDate: "2021",
+    finishedDate: "2022",
     description:
       "MyMovies is a website to explore popular, latest and upcoming movies and download them for free. There are multiple public APIs being used to display movie data, trailers and to be able to download with torrent. <br /> <br /> In this project, users will be able to see movies by different categories in home page and users can check the detail of each movie and download them by going to their detail page. My main goal of this project is to create a website about movies using APIs and latest frameworks / libraries with a unique good looking design. NextJS and tailwindCSS are used in this project to optimize the website speed and rendering performance. For sliders, swiper library is used to display movies as a group slides. latest methods and techiques are used such as TailwindCSS’s JIT mode, custom css variables, NextJS’s SEO components and NextJS’s vercel free hosting service to have the best performance overall. There are major features that I implemented such as to show blurred image at the start and show the original image only when it’s ready and to search any movies with search bar. This project took roughly around 3months to finish including the design making form the scratch with Figma.",
     slug: "mymovies",
@@ -14,11 +35,11 @@ export const data = [
     thumbnailBg: "#5ECFA5",
   },
   {
-    id: 2,
+    id: 3,
     name: "Emerald",
     finishedDate: "2021",
     description:
-      "This is the biggest project that I have made since multiple frameworks and technologies are included in this project. This is a front end e commerce project mainly using gatsbyjs along with contentful CMS to store item details. In the website, users can view items, go to their detail page, add / update / remove items in carts and see the receipt after purchasing. Since gastsby provide awesome plugins, some of them are used in this project such as to display loading bar when navigating to another page, putting SEO header tags, blurring images while on load and so on. For retreiving data from contentful, GraghQL queries are used throughout the pages. It is not a fully functional e commerce project since the items are not the real data but the main goal of this project is to learn about gatsbyjs and it’s features, making dynamic routes with gatsby, using CMS to store data and making calculations for cart items and draggable sliders. This took around 3months from designing the website to an actual working website, and deployed on gastsby cloud free hosting service for gastsby websites.",
+      "This is the biggest project that I have made since multiple frameworks and technologies are included in this project. This is a front end e commerce project mainly using gatsbyjs along with contentful CMS to store item details. In the website, users can view items, go to their detail page, add / update / remove items in carts and see the receipt after purchasing. Since gastsby provide awesome plugins, some of them are used in this project such as to display loading bar when navigating to another page, putting SEO header tags, blurring images while on load and so on. For retreiving data from contentful, GraghQL queries are used throughout the pages. <br /> <br /> It is not a fully functional e commerce project since the items are not the real data but the main goal of this project is to learn about gatsbyjs and it’s features, making dynamic routes with gatsby, using CMS to store data and making calculations for cart items and draggable sliders. This took around 3months from designing the website to an actual working website, and deployed on gastsby cloud free hosting service for gastsby websites.",
     slug: "emerald",
     projectURL: "https://emerald.gatsbyjs.io/",
     githubURL: "https://github.com/KaungKZ/Emerald",
@@ -28,7 +49,7 @@ export const data = [
     thumbnailBg: "#A99A86",
   },
   {
-    id: 3,
+    id: 4,
     name: "We Save Forests",
     finishedDate: "2021",
     description:
@@ -55,19 +76,4 @@ export const data = [
   //   techstacks: ["javascript", "scss", "netlify"],
   //   thumbnailBg: "#BBA038",
   // },
-
-  {
-    id: 4,
-    name: "Dopecase",
-    finishedDate: "2024",
-    description:
-      "This is the first personal project that was made in 2020, with simple html, css and javascript. I got the general design idea from the internet and implemented with some of my design ideas. This project is about a hotel and its’ information along with multiple pages including hotel rooms, blogs and services. There were challenges as a first time making personal project such as code refactoring and code splitting, maintaining clean codes, creating slider with plain javascript, styling multiple grid rows and columns so on. Webpack is also set up and used for the first time in this project to try out it’s features to compile files and codes modules. <br /> <br /> As a first personal project, my initial goal was to make a fully responsive and good looking multi page website and to have a clean code base which any developers will have a clear understanding about the code when they check the repository. This project took 1.5months to finish including from designing the website, and deployed on netlify free hosting platform.",
-    slug: "dopecase",
-    projectURL: "https://dopecase.vercel.app/",
-    githubURL: "https://github.com/KaungKZ/dopecase",
-    thumbnailBanner: "projects-slide-5.png",
-    mainBanner: "project-detail-4.png",
-    techstacks: ["reactjs", "nextjs", "tailwind", "nodejs", "prisma"],
-    thumbnailBg: "#BBA038",
-  },
 ];

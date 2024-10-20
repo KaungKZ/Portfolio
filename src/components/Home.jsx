@@ -141,13 +141,13 @@ export default function Home() {
                 <p className="text-text-white text-xl leading-relaxed">
                   Since 2019, I’ve been learning web development with different
                   technologies and working for companies and individuals around
-                  the globe. Throughout the journey, I met and learnt from
+                  south east asia. Throughout the journey, I met and learnt from
                   amazing and ambitious people.
                 </p>
                 <br />
                 <p className="text-text-white text-xl leading-relaxed">
-                  Interested in the entire frontend spectrum and working on
-                  ambitious projects with positive people.
+                  I'm interested in the entire frontend workflow and working on
+                  ambitious projects with positive and open-minded people.
                 </p>
               </div>
               <div className="about__getintouch group inline-flex arrow-button">
